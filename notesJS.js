@@ -2043,120 +2043,496 @@
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 169 - Statement - If...Else
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677654#overview
-//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
+// //***** COURSE 169 - Statement - If...Else
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677654#overview
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
 
-firstName = 'Zekiman';
-age = 29;
-isStudent = false;
-graduate = 'university';
+// firstName = 'Zekiman';
+// age = 29;
+// isStudent = false;
+// graduate = 'university';
 
-if(firstName == 'Zekiman'){
-    console.log(`Welcome ${firstName}.`)
-    // Welcome Zekiman
-}
+// if(firstName == 'Zekiman'){
+//     console.log(`Welcome ${firstName}.`)
+//     // Welcome Zekiman
+// }
 
-if(age >= 18){
-    console.log(`You are over 18.`)
-}
+// if(age >= 18){
+//     console.log(`You are over 18.`)
+// }
 
-//* The if statement executes a statement if a specified condition is truthy. If the condition is falsy, another statement can be executed.
+// //* The if statement executes a statement if a specified condition is truthy. If the condition is falsy, another statement can be executed.
 
-if(isStudent){
-    console.log(`You are a student`)
-}else {
-    console.log(`You aren't student anymore.`)
-}
+// if(isStudent){
+//     console.log(`You are a student`)
+// }else {
+//     console.log(`You aren't student anymore.`)
+// }
 
-//---------------------------------------------
+// //---------------------------------------------
 
-//* Syntax
+// //* Syntax
 
-//*---  if (condition) {
-//*---      statement1
-//*---   } else {
-//*---      statement2
-//*---   }
+// //*---  if (condition) {
+// //*---      statement1
+// //*---   } else {
+// //*---      statement2
+// //*---   }
 
 
-if (age >= 18){
-    if (isStudent == false){
-        if (graduate === 'university'){
-            console.log(`You can apply to driver licence`)
-        }else {
-            console.log(`You need to graduate firstly.`)
-        }
-    }else {
-        console.log(`You are still student.`)
-    }
-}else {
-    console.log(`People under 18 cannot drive!`)
-}
+// if (age >= 18){
+//     if (isStudent == false){
+//         if (graduate === 'university'){
+//             console.log(`You can apply to driver licence`)
+//         }else {
+//             console.log(`You need to graduate firstly.`)
+//         }
+//     }else {
+//         console.log(`You are still student.`)
+//     }
+// }else {
+//     console.log(`People under 18 cannot drive!`)
+// }
 
 
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 170 - SWITCH
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801910#overview
-//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
+// //***** COURSE 170 - SWITCH
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801910#overview
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
 
-//* The switch statement evaluates an expression, matching the expression's value to a case clause, and executes statements associated with that case, as well as statements in cases that follow the matching case.
+// //* The switch statement evaluates an expression, matching the expression's value to a case clause, and executes statements associated with that case, as well as statements in cases that follow the matching case.
 
-//* Syntax;
+// //* Syntax;
 
-//*     switch (expression) {
-//*         case value1:
-//*           //Statements executed when the
-//*           //result of expression matches value1
-//*           [break;]
-//*         case value2:
-//*           //Statements executed when the
-//*           //result of expression matches value2
-//*           [break;]
-//*         ...
-//*         case valueN:
-//*           //Statements executed when the
-//*           //result of expression matches valueN
-//*           [break;]
-//*         [default:
-//*           //Statements executed when none of
-//*           //the values match the value of the expression
-//*           [break;]]
-//*       }
+// //*     switch (expression) {
+// //*         case value1:
+// //*           //Statements executed when the
+// //*           //result of expression matches value1
+// //*           [break;]
+// //*         case value2:
+// //*           //Statements executed when the
+// //*           //result of expression matches value2
+// //*           [break;]
+// //*         ...
+// //*         case valueN:
+// //*           //Statements executed when the
+// //*           //result of expression matches valueN
+// //*           [break;]
+// //*         [default:
+// //*           //Statements executed when none of
+// //*           //the values match the value of the expression
+// //*           [break;]]
+// //*       }
 
-category = 'computer';
+// category = 'computer';
 
-switch(category){
-    case 'phone':
-        console.log(`Phone category`)
-    break;
+// switch(category){
+//     case 'phone':
+//         console.log(`Phone category`)
+//     break;
 
-    case 'computer':
-        console.log(`Computer category`)
-    break;
+//     case 'computer':
+//         console.log(`Computer category`)
+//     break;
 
-    default:
-        console.log('Please select a category')
-}  
+//     default:
+//         console.log('Please select a category')
+// }  
+
+// //---------------------------------------------
+// //* Using switch
+
+// const expr = 'Papayas';
+// switch (expr) {
+//   case 'Oranges':
+//     console.log('Oranges are $0.59 a pound.');
+//     break;
+//   case 'Mangoes':
+//   case 'Papayas':
+//     console.log('Mangoes and papayas are $2.79 a pound.');
+//     // expected output: "Mangoes and papayas are $2.79 a pound."
+//     break;
+//   default:
+//     console.log(`Sorry, we are out of ${expr}.`);
+// }
+
+
+// //* default (Optional): A default clause; if provided, this clause is executed if the value of expression doesn't match any of the case clauses.
+
+
+// //---------------------------------------------
+
+// //* In the following example, if expr evaluates to Bananas, the program matches the value with case case 'Bananas' and executes the associated statement. When break is encountered, the program breaks out of switch and executes the statement following switch. If break were omitted, the statement for the case 'Cherries' would also be executed.
+
+
+// switch (expr) {
+//     case 'Oranges':
+//       console.log('Oranges are $0.59 a pound.');
+//       break;
+//     case 'Apples':
+//       console.log('Apples are $0.32 a pound.');
+//       break;
+//     case 'Bananas':
+//       console.log('Bananas are $0.48 a pound.');
+//       break;
+//     case 'Cherries':
+//       console.log('Cherries are $3.00 a pound.');
+//       break;
+//     case 'Mangoes':
+//     case 'Papayas':
+//       console.log('Mangoes and papayas are $2.79 a pound.');
+//       break;
+//     default:
+//       console.log('Sorry, we are out of ' + expr + '.');
+//   }
+  
+//   console.log("Is there anything else you'd like?");
+
+//   //---------------------------------------------
+
+//   let whichDay;
+
+//   switch(new Date().getDay()){
+//         case 0:
+//             whichDay = 'Sunday';
+//     break;
+
+//         case 1:
+//             whichDay = 'Monday';
+//     break;
+
+//         case 2:
+//             whichDay = 'Tuesday';
+//     break;
+
+//         case 3:
+//             whichDay = 'Wednesday';
+//     break;
+
+//         case 4:
+//             whichDay = 'Thursday';
+//     break;
+
+//         case 5:
+//             whichDay = 'Friday';
+//     break;
+
+//         case 6:
+//             whichDay = 'Saturday';
+//     break;
+
+//     default: 
+//             whichDay = 'Date is wrong!'
+//   }
+
+//   console.log(`Today is ${whichDay}`);
+//   // Today is Thursday
+
+// //---------------------------------------------
+
+// //* Multi-case : single operation
+// //* This method takes advantage of the fact that if there is no break below a case clause it will continue to execute the next case clause regardless if the case meets the criteria. 
+
+//     let weekDay;
+
+//     switch(new Date().getDay()){
+//         case 1:
+//         case 2:
+//         case 3:
+//         case 4:
+//         case 5:
+//             weekDay= 'mid-week';
+//             break;
+//         case 6:
+//         case 0:
+//             weekDay= 'weekend';
+//             break;
+//         default:
+//             weekDay= 'Wrong input!'
+//     }
+
+//     console.log(`Today is ${weekDay}.`)
+
+// //--------------------------------------------- 
+
+
+// var foo = 1;
+// var output = 'Output: ';
+// switch (foo) {
+//   case 0:
+//     output += 'So ';
+//   case 1:
+//     output += 'What ';
+//     output += 'Is ';
+//   case 2:
+//     output += 'Your ';
+//   case 3:
+//     output += 'Name';
+//   case 4:
+//     output += '?';
+//     console.log(output);
+//     break;
+//   case 5:
+//     output += '!';
+//     console.log(output);
+//     break;
+//   default:
+//     console.log('Please pick a number from 0 to 5!');
+// }
+
+// // 
+// //*     Value	Log text
+// //*     0	    Output: So What Is Your Name?
+// //*     1	    Output: What Is Your Name?
+// //*     2	    Output: Your Name?
+// //*     3	    Output: Name?
+// //*     4	    Output: ?
+// //*     5	    Output: !
+
+// //--------------------------------------------- 
+
+// age = 31;
+
+// switch(true){
+//     case (age>0 && age<13):
+//         console.log(`${firstName} is a child.`)
+//         break;
+    
+//     case (age>12 && age< 19):
+//         console.log(`${firstName} is a teenager.`)
+//         break;
+    
+//     case (age>18):
+//         console.log(`${firstName} is an adult.`)
+//         break;
+
+//     default:
+//         console.log(`Please enter the age.`)
+// }
+
+// //--------------------------------------------- 
+
+// //* e.g. If statement
+
+// result = prompt(`Who's there?`)
+
+// if (result == 'cancel') {
+//     console.log(`Cancelled.`);
+// } else if (result == 'other') {
+//     console.log(`I don't know you`)
+// } else if (result == 'admin') {
+//     let result2 = prompt(`What is the password?`);
+//     if (result2 == 'cancel') {
+//         console.log(`Cancelled.`)
+//     } else if (result2 == 'other') {
+//         console.log(`Wrong password.`)
+//     } else if (result2 == 'themaster') {
+//         console.log(`Welcome!`)
+//     }
+// } else {
+//     console.log(`Invalid input.`)
+// }
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 172 - OBJECT LITERALS
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677648#overview
+//* 
+
+person = {
+    firstName : 'Zekiman',
+    lastName : 'Blackwolf',
+    age: 7,
+    hobbies: ['music','game'],
+    adress: {
+        city: 'London',
+        country: 'England'
+    },
+    getBirthYear: function(){
+        return new Date().getFullYear()-this.age
+    }
+};
+
+console.log(person)
+// {firstName: 'Zekiman', lastName: 'Blackwolf', age: 7, hobbies: Array(2), adress: {…}}
+
+console.log(person.firstName)
+// Zekiman
+
+console.log(person['firstName'])
+// Zekiman
+
+console.log(person.hobbies)
+// (2) ['music', 'game']
+
+console.log(person.hobbies[1])
+// game
+
+console.log(person.hobbies.length)
+// 2
+
+console.log(person.adress)
+// {city: 'London', country: 'England'}
+
+console.log(person.adress.city,person.adress.country)
+// London England
+
+console.log(person.getBirthYear())
+// 2014
 
 //---------------------------------------------
 
-const expr = 'Papayas';
-switch (expr) {
-  case 'Oranges':
-    console.log('Oranges are $0.59 a pound.');
-    break;
-  case 'Mangoes':
-  case 'Papayas':
-    console.log('Mangoes and papayas are $2.79 a pound.');
-    // expected output: "Mangoes and papayas are $2.79 a pound."
-    break;
-  default:
-    console.log(`Sorry, we are out of ${expr}.`);
+people = [
+            {
+                firstName: 'Kubrawoman',
+                lastName: 'Blackbird',
+                birthYear: 1994,
+                city: 'Dirabzon'
+            },
+            {
+                firstName: 'Zekiman',
+                lastName: 'Blackwolf',
+                birthYear: 1994,
+                city: 'Rize'
+            },
+            {
+                firstName: 'Salimov',
+                lastName: 'Pancar',
+                birthYear: 1976,
+                city: 'Nahcivan',
+                hobbies: ['reading','swimming','runing']
+            },
+        ]
+
+console.log(people)
+// 0: {firstName: 'Kubrawoman', lastName: 'Blackbird', birthYear: 1994, city: 'Dirabzon'}
+// 1: {firstName: 'Zekiman', lastName: 'Blackwolf', birthYear: 1994, city: 'Rize'}
+// 2: {firstName: 'Salimov', lastName: 'Pancar', birthYear: 1976, city: 'Nahcivan'}
+
+console.log(people[2])
+// {firstName: 'Salimov', lastName: 'Pancar', birthYear: 1976, city: 'Nahcivan'}
+
+console.log(people[1].firstName)
+// Zekiman
+
+console.log(people[2].hobbies)
+// (3) ['reading', 'swimming', 'runing']
+
+console.log(people[2].hobbies[0])
+// reading
+
+//---------------------------------------------
+
+for(let i=0; i<people.length; i++){
+    console.log(people[i].firstName)
 }
+// Kubrawoman
+// Zekiman
+// Salimov
 
 
-//* default (Optional): A default clause; if provided, this clause is executed if the value of expression doesn't match any of the case clauses.
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 173 - EXERCISES
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/9534294#overview
+//* 
+
+carReports = [
+
+    {
+        id: 'bmw116d_1234',
+        model: '116d',
+        year: 2015,
+        color: 'white',
+        reports: [{
+                id: 'bmw116d_1234_1',
+                date: '30.01.2016',
+                km: 13000,
+                amount: 900,
+                details: [{
+                        id: 1,
+                        process: 'changing part',
+                        amount: 300
+                    },
+                    {
+                        id: 2,
+                        process: 'changing part',
+                        amount: 300
+                    },
+                    {
+                        id: 3,
+                        process: 'changing part',
+                        amount: 300
+                    }
+                ]
+            },
+            {
+                id: 'bmw116d_1234_2',
+                date: '10.01.2017',
+                km: 28000,
+                amount: 1800,
+                details: [{
+                        id: 1,
+                        process: 'changing part',
+                        amount: 350
+                    },
+                    {
+                        id: 2,
+                        process: 'changing part',
+                        amount: 350
+                    },
+                    {
+                        id: 3,
+                        process: 'changing part',
+                        amount: 300
+                    },
+                    {
+                        id: 4,
+                        process: 'changing part',
+                        amount: 800
+                    }
+                ]
+            }
+        ]
+    }
+
+]
+
+console.log(carReports[0])
+// {id: 'bmw116d_1234', model: '116d', year: 2015, color: 'white', reports: Array(2)}
+
+console.log(carReports[0].id)
+// bmw116d_1234
+
+console.log(carReports[0].model)
+// 116d
+
+console.log(carReports[0].color)
+// white
+
+console.log(carReports[0].reports)
+// 0: {id: 'bmw116d_1234_1', date: '30.01.2016', km: 13000, amount: 900, details: Array(3)}
+// 1: {id: 'bmw116d_123
+
+console.log(carReports[0].reports[0])
+// {id: 'bmw116d_1234_1', date: '30.01.2016', km: 13000, amount: 900, details: Array(3)}
+
+console.log(carReports[0].reports[0].details)
+// 0: {id: 1, process: 'changing part', amount: 300}
+// 1: {id: 2, process: 'changing part', amount: 300}
+// 2: {id: 3, process: 'changing part', amount: 300}
+
+console.log(carReports[0].reports[0].details[0])
+// {id: 1, process: 'changing part', amount: 300}
+
+console.log(carReports[0].reports[0].details[0].amount)
+// 300
 
