@@ -2340,100 +2340,100 @@
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 172 - OBJECT LITERALS
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677648#overview
-//* 
+// //***** COURSE 172 - OBJECT LITERALS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677648#overview
+// //* 
 
-person = {
-    firstName : 'Zekiman',
-    lastName : 'Blackwolf',
-    age: 7,
-    hobbies: ['music','game'],
-    adress: {
-        city: 'London',
-        country: 'England'
-    },
-    getBirthYear: function(){
-        return new Date().getFullYear()-this.age
-    }
-};
+// person = {
+//     firstName : 'Zekiman',
+//     lastName : 'Blackwolf',
+//     age: 7,
+//     hobbies: ['music','game'],
+//     adress: {
+//         city: 'London',
+//         country: 'England'
+//     },
+//     getBirthYear: function(){
+//         return new Date().getFullYear()-this.age
+//     }
+// };
 
-console.log(person)
-// {firstName: 'Zekiman', lastName: 'Blackwolf', age: 7, hobbies: Array(2), adress: {…}}
+// console.log(person)
+// // {firstName: 'Zekiman', lastName: 'Blackwolf', age: 7, hobbies: Array(2), adress: {…}}
 
-console.log(person.firstName)
-// Zekiman
+// console.log(person.firstName)
+// // Zekiman
 
-console.log(person['firstName'])
-// Zekiman
+// console.log(person['firstName'])
+// // Zekiman
 
-console.log(person.hobbies)
-// (2) ['music', 'game']
+// console.log(person.hobbies)
+// // (2) ['music', 'game']
 
-console.log(person.hobbies[1])
-// game
+// console.log(person.hobbies[1])
+// // game
 
-console.log(person.hobbies.length)
-// 2
+// console.log(person.hobbies.length)
+// // 2
 
-console.log(person.adress)
-// {city: 'London', country: 'England'}
+// console.log(person.adress)
+// // {city: 'London', country: 'England'}
 
-console.log(person.adress.city,person.adress.country)
-// London England
+// console.log(person.adress.city,person.adress.country)
+// // London England
 
-console.log(person.getBirthYear())
-// 2014
+// console.log(person.getBirthYear())
+// // 2014
 
-//---------------------------------------------
+// //---------------------------------------------
 
-people = [
-            {
-                firstName: 'Kubrawoman',
-                lastName: 'Blackbird',
-                birthYear: 1994,
-                city: 'Dirabzon'
-            },
-            {
-                firstName: 'Zekiman',
-                lastName: 'Blackwolf',
-                birthYear: 1994,
-                city: 'Rize'
-            },
-            {
-                firstName: 'Salimov',
-                lastName: 'Pancar',
-                birthYear: 1976,
-                city: 'Nahcivan',
-                hobbies: ['reading','swimming','runing']
-            },
-        ]
+// people = [
+//             {
+//                 firstName: 'Kubrawoman',
+//                 lastName: 'Blackbird',
+//                 birthYear: 1994,
+//                 city: 'Dirabzon'
+//             },
+//             {
+//                 firstName: 'Zekiman',
+//                 lastName: 'Blackwolf',
+//                 birthYear: 1994,
+//                 city: 'Rize'
+//             },
+//             {
+//                 firstName: 'Salimov',
+//                 lastName: 'Pancar',
+//                 birthYear: 1976,
+//                 city: 'Nahcivan',
+//                 hobbies: ['reading','swimming','runing']
+//             },
+//         ]
 
-console.log(people)
-// 0: {firstName: 'Kubrawoman', lastName: 'Blackbird', birthYear: 1994, city: 'Dirabzon'}
-// 1: {firstName: 'Zekiman', lastName: 'Blackwolf', birthYear: 1994, city: 'Rize'}
-// 2: {firstName: 'Salimov', lastName: 'Pancar', birthYear: 1976, city: 'Nahcivan'}
+// console.log(people)
+// // 0: {firstName: 'Kubrawoman', lastName: 'Blackbird', birthYear: 1994, city: 'Dirabzon'}
+// // 1: {firstName: 'Zekiman', lastName: 'Blackwolf', birthYear: 1994, city: 'Rize'}
+// // 2: {firstName: 'Salimov', lastName: 'Pancar', birthYear: 1976, city: 'Nahcivan'}
 
-console.log(people[2])
-// {firstName: 'Salimov', lastName: 'Pancar', birthYear: 1976, city: 'Nahcivan'}
+// console.log(people[2])
+// // {firstName: 'Salimov', lastName: 'Pancar', birthYear: 1976, city: 'Nahcivan'}
 
-console.log(people[1].firstName)
-// Zekiman
+// console.log(people[1].firstName)
+// // Zekiman
 
-console.log(people[2].hobbies)
-// (3) ['reading', 'swimming', 'runing']
+// console.log(people[2].hobbies)
+// // (3) ['reading', 'swimming', 'runing']
 
-console.log(people[2].hobbies[0])
-// reading
+// console.log(people[2].hobbies[0])
+// // reading
 
-//---------------------------------------------
+// //---------------------------------------------
 
-for(let i=0; i<people.length; i++){
-    console.log(people[i].firstName)
-}
-// Kubrawoman
-// Zekiman
-// Salimov
+// for(let i=0; i<people.length; i++){
+//     console.log(people[i].firstName)
+// }
+// // Kubrawoman
+// // Zekiman
+// // Salimov
 
 
 
@@ -2441,98 +2441,473 @@ for(let i=0; i<people.length; i++){
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 173 - EXERCISES
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/9534294#overview
-//* 
+// //***** COURSE 173 - EXERCISES
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/9534294#overview
+// //* 
 
-carReports = [
+// carReports = [
 
-    {
-        id: 'bmw116d_1234',
-        model: '116d',
-        year: 2015,
-        color: 'white',
-        reports: [{
-                id: 'bmw116d_1234_1',
-                date: '30.01.2016',
-                km: 13000,
-                amount: 900,
-                details: [{
-                        id: 1,
-                        process: 'changing part',
-                        amount: 300
-                    },
-                    {
-                        id: 2,
-                        process: 'changing part',
-                        amount: 300
-                    },
-                    {
-                        id: 3,
-                        process: 'changing part',
-                        amount: 300
-                    }
-                ]
-            },
-            {
-                id: 'bmw116d_1234_2',
-                date: '10.01.2017',
-                km: 28000,
-                amount: 1800,
-                details: [{
-                        id: 1,
-                        process: 'changing part',
-                        amount: 350
-                    },
-                    {
-                        id: 2,
-                        process: 'changing part',
-                        amount: 350
-                    },
-                    {
-                        id: 3,
-                        process: 'changing part',
-                        amount: 300
-                    },
-                    {
-                        id: 4,
-                        process: 'changing part',
-                        amount: 800
-                    }
-                ]
-            }
-        ]
+//     {
+//         id: 'bmw116d_1234',
+//         model: '116d',
+//         year: 2015,
+//         color: 'white',
+//         reports: [{
+//                 id: 'bmw116d_1234_1',
+//                 date: '30.01.2016',
+//                 km: 13000,
+//                 amount: 900,
+//                 details: [{
+//                         id: 1,
+//                         process: 'changing part',
+//                         amount: 300
+//                     },
+//                     {
+//                         id: 2,
+//                         process: 'changing part',
+//                         amount: 300
+//                     },
+//                     {
+//                         id: 3,
+//                         process: 'changing part',
+//                         amount: 300
+//                     }
+//                 ]
+//             },
+//             {
+//                 id: 'bmw116d_1234_2',
+//                 date: '10.01.2017',
+//                 km: 28000,
+//                 amount: 1800,
+//                 details: [{
+//                         id: 1,
+//                         process: 'changing part',
+//                         amount: 350
+//                     },
+//                     {
+//                         id: 2,
+//                         process: 'changing part',
+//                         amount: 350
+//                     },
+//                     {
+//                         id: 3,
+//                         process: 'changing part',
+//                         amount: 300
+//                     },
+//                     {
+//                         id: 4,
+//                         process: 'changing part',
+//                         amount: 800
+//                     }
+//                 ]
+//             }
+//         ]
+//     }
+
+// ]
+
+// console.log(carReports[0])
+// // {id: 'bmw116d_1234', model: '116d', year: 2015, color: 'white', reports: Array(2)}
+
+// console.log(carReports[0].id)
+// // bmw116d_1234
+
+// console.log(carReports[0].model)
+// // 116d
+
+// console.log(carReports[0].color)
+// // white
+
+// console.log(carReports[0].reports)
+// // 0: {id: 'bmw116d_1234_1', date: '30.01.2016', km: 13000, amount: 900, details: Array(3)}
+// // 1: {id: 'bmw116d_123
+
+// console.log(carReports[0].reports[0])
+// // {id: 'bmw116d_1234_1', date: '30.01.2016', km: 13000, amount: 900, details: Array(3)}
+
+// console.log(carReports[0].reports[0].details)
+// // 0: {id: 1, process: 'changing part', amount: 300}
+// // 1: {id: 2, process: 'changing part', amount: 300}
+// // 2: {id: 3, process: 'changing part', amount: 300}
+
+// console.log(carReports[0].reports[0].details[0])
+// // {id: 1, process: 'changing part', amount: 300}
+
+// console.log(carReports[0].reports[0].details[0].amount)
+// // 300
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 174 - LOOP
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677658#overview
+// //* https://developer.mozilla.org/en-US/docs/Glossary/loop
+
+// //* A loop is a sequence of instructions that is continually repeated until a certain condition is met in computer programming. An example would be the process of getting an item of data and changing it, and then making sure some condition is checked such as, if a counter has reached a prescribed number.
+
+
+// //* 1. 'FOR' LOOP
+
+// //* Syntax
+// //*         for (statement 1; statement 2; statement 3){
+// //*          execute code block
+// //*         }
+
+// //* Statement 1 is executed once before the code block is run.
+// //* Statement 2 defines the condition needed to execute the code block.
+// //* Statement 3 is executed every time the code block is run.
+
+// for(let i = 0; i < 10; i++){
+//     console.log(i)
+// }
+// //This loop will print numbers 0-9, will stop when condition is met (i = 10)
+
+// //* For the above example, the syntax is as follows:
+
+// // Statement 1 sets the variable for the loop (var i = 0).
+// // Statement 2 sets the loop condition (i < 10).
+// // Statement 3 increases the value of i (i++) each time the code block is run.
+
+// //---------------------------------------------
+
+// for(let i=0; i<=25; i++){
+//     if(i<=17){
+//         console.log(`You cannot do anyting by yourself while you are ${i} years old.`)
+//     }else if(i>=18 && i<21){
+//         console.log(`You can do something by yourself while you are ${i} years old.`)
+//     }else if(i>=21){
+//         console.log(`You can do what do you want by yourself while you are ${i} years old.`)
+//     }
+// }
+
+// //---------------------------------------------
+
+// //* continue;
+// //* If you use continue, loop would pass the condition. e.g.
+
+// for(let i=0; i<10; i++){
+//     if(i===7){
+//         continue;
+//     }
+//     console.log(`${i} is a number.`)
+// }
+
+// // 7 number was passed by loop. result; 
+// // 0 is a number.
+// // 1 is a number.
+// // 2 is a number.
+// // 3 is a number.
+// // 4 is a number.
+// // 5 is a number.
+// // 6 is a number.
+// // 8 is a number.
+// // 9 is a number.
+
+// //---------------------------------------------
+
+// //* break;
+// //* It interrupts the loop. e.g.
+
+// for(let i=0; i<10; i++){
+    
+//     console.log(`${i} is a number.`)
+    
+//     if(i===7){
+//         break;
+//     }
+    
+// }
+
+// // 7 number was passed by loop. result; 
+// // 0 is a number.
+// // 1 is a number.
+// // 2 is a number.
+// // 3 is a number.
+// // 4 is a number.
+// // 5 is a number.
+// // 6 is a number.
+// // 7 is a number.
+
+// //---------------------------------------------
+
+// //* 2. 'WHILE' LOOP
+
+// //* Syntax
+
+// //*       while (condition){
+// //*        execute code block
+// //*       }
+
+// //* The code block will continue to loop as long as the condition is true.
+
+// //* Example;
+
+// i = 0;
+// while (i<5){
+//     console.log(i);
+//     i++
+// }
+// //This loop  will print number 0-4, will stop when condition becomes false (i >=5)
+
+// //* For the above example, the syntax is as follows:
+
+// //* The code block will continue to run as long as the variable (i) is less than 5.
+
+// //---------------------------------------------
+
+// n = 0;
+// x = 0;
+
+// while(n<3){
+//     n++
+//     console.log(x += n)
+// }
+
+// //* Each iteration, the loop increments n and adds it to x. Therefore, x and n take on the following values:
+// //*----- After the first pass: n = 1 and x = 1
+// //*----- After the second pass: n = 2 and x = 3
+// //*----- After the third pass: n = 3 and x = 6
+
+// //* After completing the third pass, the condition n < 3 is no longer true, so the loop terminates.
+
+// //---------------------------------------------
+
+// //* Continue and Break can also use in 'While' Loop
+
+// //---------------------------------------------
+
+// //* 3. DO-WHILE LOOP
+// //* The do...while statement creates a loop that executes a specified statement until the test condition evaluates to false. The condition is evaluated after executing the statement, resulting in the specified statement executing *at least once*.
+
+// //* Syntax
+// //*         do
+// //*            statement
+// //*         while (condition);
+
+//  i=0;
+//  do {
+//     i++
+//     console.log(i)
+//  }while(i===10)
+
+//  // result: 1
+ 
+//  //* This statement will print only '1' because of 'while' returns false
+
+//  //* if while would be (i<10); loop would continue untill the statement is false.
+
+//  i=0;
+//  do {
+//     i++
+//     console.log(i)
+//  }while(i<10)
+
+//  // 1
+//  // 2
+//  // 3
+//  // 4
+//  // 5
+//  // 6
+//  // 7
+//  // 8
+//  // 9
+//  // 10
+ 
+// //---------------------------------------------
+
+// sum=0;
+// i=0
+
+// do{
+//     sum+=i;
+//     i++
+
+// }while(i<11)
+
+// console.log(sum) // 55
+
+// //---------------------------------------------
+
+// for(let i=1;i<4;i++){
+//     for(let j=1;j<4;j++){
+//         console.log(`i=${i} & j=${j}`)
+//     }
+// }
+
+// // i=1 & j=1
+// // i=1 & j=2
+// // i=1 & j=3
+// // i=2 & j=1
+// // i=2 & j=2
+// // i=2 & j=3
+// // i=3 & j=1
+// // i=3 & j=2
+// // i=3 & j=3
+
+// //---------------------------------------------
+
+// let val='\n'
+// for(let i=0;i<10 ;i++){
+//     for(let x=0;x<10;x++){
+//         val += '* '
+//     }
+//     val+='\n';
+// }
+
+// console.log(val)
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 175 - Javascript Basics
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801926#overview
+// //* 
+
+// cars = ['BMW', 'Mercedes', 'Toyota'];
+
+// for(let i=0;i<cars.length;i++){
+//     console.log(cars[i])
+// }
+// // BMW
+// // Mercedes
+// // Toyota
+
+// //---------------------------------------------
+
+// //** For...in 
+// // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+
+
+// for (let i in cars){
+//     console.log(cars[i])
+// }
+// // BMW
+// // Mercedes
+// // Toyota
+
+// console.log(typeof cars); // object
+
+// //---------------------------------------------
+
+// //** ForEach */
+// // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
+// cars.forEach(function(item){
+//     console.log(item);
+// })
+// // BMW
+// // Mercedes
+// // Toyota
+
+// people = [
+//     {firstname:'Zekiman', lastname:'Blackwolf'},
+//     {firstname:'Kubrawoman', lastname:'Blackwolf'},
+//     {firstname:'Omer', lastname:'Fishwolf'},
+// ]
+
+// //---------------------------------------------
+
+// for (let i=0; i<people.length; i++){
+//     console.log(people[i].firstname);
+// }
+// // Zekiman
+// // Kubrawoman
+// // Omer
+
+// for (let i in people){
+//     console.log(people[i].firstname)
+// };
+// // Zekiman
+// // Kubrawoman
+// // Omer
+
+// people.forEach(function(item){
+//     console.log(item.firstname)
+// });
+// // Zekiman
+// // Kubrawoman
+// // Omer
+
+// //---------------------------------------------
+
+// //** map : returns an array
+
+// val = people.map(function(item){
+//     return item.firstname+' '+item.lastname
+// })
+
+// console.log(val) // (3) ['Zekiman Blackwolf', 'Kubrawoman Blackwolf', 'Omer Fishwolf']
+
+// //----
+
+// numbers = [1,5,6,8,10];
+
+// val = numbers.map(function(item){
+//     return item*item
+// })
+
+// console.log(val) // (5) [1, 25, 36, 64, 100]
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 176 - EXERCISES - LOOPS
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677660#overview
+//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration
+
+
+//* Generate a random number between 1-10
+//* Help them to find the number by giving tip like up and down
+//* Give them score
+//* Let user can say how many times they can guess
+
+number = Math.floor(Math.random()*10)+1
+// console.log(number)
+
+claim = prompt('How many guess do you think you can find it?')
+howManyTimes = 0;
+predictor();
+window.value = ''
+score = 0;
+
+function predictor(){
+    howManyTimes++;
+    // console.log(`TEST - howManyTimes: ${howManyTimes}`)
+    window.value = prompt('Guess the number!')
+    // console.log(`TEST - value: ${value}`);
+    checker();
+}
+
+function controlChance(){
+    if(howManyTimes>=claim){
+        console.log(`Game over! \n You tried ${claim} times.`)
+    }else {
+        predictor();
     }
+}
 
-]
+function scoreCalculator(){
+    score = Math.round((100/claim)*(claim-(howManyTimes-1)))
+    return score
+}
 
-console.log(carReports[0])
-// {id: 'bmw116d_1234', model: '116d', year: 2015, color: 'white', reports: Array(2)}
+function checker(){
+if(value==number){
+    return console.log(`Congratz!!! \n You found it in ${howManyTimes} times. \n YOUR SCORE: ${scoreCalculator()}`)
+}else if(value<number){
+    console.log(`You should try the numbers HIGHER than ${value}. \n Remaining chance: ${claim-howManyTimes}. `)
+    controlChance()
+}else if(value>number){
+    console.log(`You should try the numbers LOWER than ${value}  \n Remaining chance: ${claim-howManyTimes}. `);
+    controlChance()
+}
+}
 
-console.log(carReports[0].id)
-// bmw116d_1234
 
-console.log(carReports[0].model)
-// 116d
 
-console.log(carReports[0].color)
-// white
 
-console.log(carReports[0].reports)
-// 0: {id: 'bmw116d_1234_1', date: '30.01.2016', km: 13000, amount: 900, details: Array(3)}
-// 1: {id: 'bmw116d_123
-
-console.log(carReports[0].reports[0])
-// {id: 'bmw116d_1234_1', date: '30.01.2016', km: 13000, amount: 900, details: Array(3)}
-
-console.log(carReports[0].reports[0].details)
-// 0: {id: 1, process: 'changing part', amount: 300}
-// 1: {id: 2, process: 'changing part', amount: 300}
-// 2: {id: 3, process: 'changing part', amount: 300}
-
-console.log(carReports[0].reports[0].details[0])
-// {id: 1, process: 'changing part', amount: 300}
-
-console.log(carReports[0].reports[0].details[0].amount)
-// 300
 
