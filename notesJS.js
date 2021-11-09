@@ -2855,59 +2855,263 @@
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 176 - EXERCISES - LOOPS
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677660#overview
-//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration
+// //***** COURSE 176 - EXERCISES - LOOPS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677660#overview
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration
 
 
-//* Generate a random number between 1-10
-//* Help them to find the number by giving tip like up and down
-//* Give them score
-//* Let user can say how many times they can guess
+// //* Generate a random number between 1-10
+// //* Help them to find the number by giving tip like up and down
+// //* Give them score
+// //* Let user can say how many times they can guess
 
-number = Math.floor(Math.random()*10)+1
-// console.log(number)
+// number = Math.floor(Math.random()*10)+1
+// // console.log(number)
 
-claim = prompt('How many guess do you think you can find it?')
-howManyTimes = 0;
-predictor();
-window.value = ''
-score = 0;
+// claim = prompt('How many guess do you think you can find it?')
+// howManyTimes = 0;
+// predictor();
+// window.value = ''
+// score = 0;
 
-function predictor(){
-    howManyTimes++;
-    // console.log(`TEST - howManyTimes: ${howManyTimes}`)
-    window.value = prompt('Guess the number!')
-    // console.log(`TEST - value: ${value}`);
-    checker();
-}
+// function predictor() {
+//     howManyTimes++;
+//     // console.log(`TEST - howManyTimes: ${howManyTimes}`)
+//     window.value = prompt('Guess the number!')
+//     // console.log(`TEST - value: ${value}`);
+//     checker();
+// }
 
-function controlChance(){
-    if(howManyTimes>=claim){
-        console.log(`Game over! \n You tried ${claim} times.`)
-    }else {
-        predictor();
-    }
-}
+// function controlChance() {
+//     if (howManyTimes >= claim) {
+//         console.log(`Game over! \n You tried ${claim} times.`)
+//     } else {
+//         predictor();
+//     }
+// }
 
-function scoreCalculator(){
-    score = Math.round((100/claim)*(claim-(howManyTimes-1)))
-    return score
-}
+// function scoreCalculator() {
+//     score = Math.round((100 / claim) * (claim - (howManyTimes - 1)))
+//     return score
+// }
 
-function checker(){
-if(value==number){
-    return console.log(`Congratz!!! \n You found it in ${howManyTimes} times. \n YOUR SCORE: ${scoreCalculator()}`)
-}else if(value<number){
-    console.log(`You should try the numbers HIGHER than ${value}. \n Remaining chance: ${claim-howManyTimes}. `)
-    controlChance()
-}else if(value>number){
-    console.log(`You should try the numbers LOWER than ${value}  \n Remaining chance: ${claim-howManyTimes}. `);
-    controlChance()
-}
-}
+// function checker() {
+//     if (value == number) {
+//         return console.log(`Congratz!!! \n You found it in ${howManyTimes} times. \n YOUR SCORE: ${scoreCalculator()}`)
+//     } else if (value < number) {
+//         console.log(`You should try the numbers HIGHER than ${value}. \n Remaining chance: ${claim-howManyTimes}. `)
+//         controlChance()
+//     } else if (value > number) {
+//         console.log(`You should try the numbers LOWER than ${value}. \n Remaining chance: ${claim-howManyTimes}. `);
+//         controlChance()
+//     }
+// }
 
 
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 177 - FUNCTIONS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677662#overview
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+
+// function ageCalculator(birthyear){
+//     return console.log(new Date().getFullYear()-birthyear)
+// }
+
+// ageCalculator(1963) // 58
+// ageCalculator(1994) // 27
+
+// //---------------------------------------------
+
+// function square(number){
+//     return console.log(number*number)
+// }
+
+// square(4)   // 16
+// square(5)   // 25
+// square(9)   // 81
+
+// //---------------------------------------------
+
+// factorial = function fac(n) { 
+//     return n < 2 ? 1 : n * fac(n - 1) 
+// }
+
+// console.log(factorial(3))
+
+// // 3 * fac(2)
+
+// // Why error didnot return like fac is not defined?? ask later
+
+// //---------------------------------------------
+
+// function ageCalculator(birthYear){
+//     return new Date().getFullYear()-birthYear
+// }
+
+// function remainingYear(birthYear, name){
+//     age = ageCalculator(birthYear);
+//     retired = 65-age;
+    
+//     if(retired>0){
+//         console.log(`${name}, remaining years for retiring: ${retired}.`)
+//     }else if(age===NaN || age==undefined){
+//         console.log(`Check your information.`)
+//     }
+//     else{
+//         console.log(`${name}, you are already retired.`)
+//     }
+// }
+
+// remainingYear(1994,'Zekiman') // Zekiman, remaining years for retiring: 38.
+// remainingYear(1956,'Zekiman') // Zekiman, you are already retired.
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 178 - FUNCTION DECLARATION & EXPRESSION
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677662#overview
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function
+
+// function sum(a,b){
+//     c = a+b;
+//     return c;
+// }
+
+// console.log(sum(10,20)) // 30
+
+// //* Function above is similar to below
+
+// sum = function(a,b){
+//     c = a+b;
+//     return c;
+// }
+
+// console.log(sum(10,20)) // 30
+
+// //---------------------------------------------
+
+// //* Default parameters
+
+// sum = function(a,b){
+
+//     //* First way to define default parameters
+//     if(typeof a === 'undefined'){ a=0 }
+//     if(typeof b === 'undefined'){ b=0 }
+    
+//     c = a+b;
+//     return c;
+// }
+
+// console.log(sum(12));   // 12
+// console.log(sum(20));   // 20
+// console.log(sum(10,'20'));   // (string) 1020
+
+
+// //* Alternative (easier) Way to defining default parameters;
+
+// sum = function(a=0, b=0){
+//     c = a+b;
+//     return c;
+// }
+
+// console.log(sum(25,15));    // 40
+// console.log(sum(40));       // 40
+
+
+// //---------------------------------------------
+// //* Arguments - The arguments object
+// //* arguments is an Array-like object accessible inside functions that contains the values of the arguments passed to that function.
+
+// function args() {
+//     console.log(arguments)
+// }
+
+// args(10,20,30,40)      
+// // Arguments(4) [10, 20, 30, 40, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+
+// function sumAll(){
+//     total = 0;
+//     for(let i=0; i<arguments.length;i++){
+//         total += arguments[i]
+//     }
+//     return console.log(total);
+// }
+
+// sumAll(5,3,2)       // 10
+// sumAll(40,15,25)    // 80
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 179 - EXERCISES - FUNCTIONS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/9534306#overview
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+
+
+// //* Enter amount withdrawal
+// //* If there is enouh balance, do it
+// //* if there is no balance, ask him to withdrwal from additional account (if has balance)
+
+// mainAccountBalance= 1000;
+// additionalBalance= 500;
+// allBalance = mainAccountBalance+additionalBalance
+// console.log(`Main: ${mainAccountBalance} 
+//             \nAdditional: ${additionalBalance} 
+//             \nALL: ${allBalance}`)
+
+// withdraw();
+
+// function withdraw() {
+//     withdrawal = prompt(`Please enter amount do you want withdraw!`);
+    
+//     if (withdrawal <= allBalance) {
+//         if (withdrawal <= mainAccountBalance) {
+//             console.log(`You have withdrawal ${withdrawal}. \nRemaining balance: ${mainAccountBalance-withdrawal}`);
+//             againProcess();
+//         }else {
+//             console.log(`You don't have enough main balance.`);
+    
+//             confirm(`Would you like to withdrawal also from additional account?`) ?
+//                 console.log(`You have withdrawal ${withdrawal} from your main and additional accounts. 
+//                 \nRemaining balances: 
+//                 \nMain Account: 0 
+//                 \nAdditional Account: ${mainAccountBalance-withdrawal+additionalBalance}`) :
+//                 againProcess();
+            
+//             againProcess();
+//         }
+//     } else {
+//         console.log(`You don't have enough balance.`);
+//         againProcess();
+//     }
+// }
+
+// function againProcess() {
+//     confirm(`Would you like to start withdrawal process again?`) ?
+//     withdraw() :
+//     console.log(`You have cancelled.`)
+// }
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 180 - WINDOW
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801938#overview
+//* 
+
+let val;
+var a = 10;
+
+val = window;
+
+console.log(val)
 
 
 
