@@ -3217,117 +3217,233 @@
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 181 - SCOPE
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801940#overview
-//* https://developer.mozilla.org/en-US/docs/Glossary/Scope
-//* https://developer.mozilla.org/en-US/docs/Glossary/Global_scope
-//* https://developer.mozilla.org/en-US/docs/Glossary/Local_scope 
+// //***** COURSE 181 - SCOPE
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801940#overview
+// //* https://developer.mozilla.org/en-US/docs/Glossary/Scope
+// //* https://developer.mozilla.org/en-US/docs/Glossary/Global_scope
+// //* https://developer.mozilla.org/en-US/docs/Glossary/Local_scope 
 
 
-//* SCOPE
-//* The context in which values and expressions are "visible" or can be referenced. If a variable or other expression is not "in the current scope," then it is unavailable for use. Scopes can also be layered in a hierarchy, so that child scopes have access to parent scopes.
+// //* SCOPE
+// //* The context in which values and expressions are "visible" or can be referenced. If a variable or other expression is not "in the current scope," then it is unavailable for use. Scopes can also be layered in a hierarchy, so that child scopes have access to parent scopes.
 
-//* (for example) a variable defined exclusively within the function cannot be accessed from outside the function or within other functions. For instance, the following is invalid:
+// //* (for example) a variable defined exclusively within the function cannot be accessed from outside the function or within other functions. For instance, the following is invalid:
 
-function exampleFunction() {
-    var x = "declared inside function";  // x can only be used in exampleFunction
-    console.log("Inside function");
-    console.log(x);
-}
+// function exampleFunction() {
+//     var x = "declared inside function";  // x can only be used in exampleFunction
+//     console.log("Inside function");
+//     console.log(x);
+// }
 
-console.log(x);  // Causes error
+// console.log(x);  // Causes error
 
-//* However, the following code is valid due to the variable being declared outside the function, making it global:
+// //* However, the following code is valid due to the variable being declared outside the function, making it global:
 
-var x = "declared outside function";
+// var x = "declared outside function";
 
-exampleFunction();
+// exampleFunction();
 
-function exampleFunction() {
-    console.log("Inside function");
-    console.log(x);
-}
+// function exampleFunction() {
+//     console.log("Inside function");
+//     console.log(x);
+// }
 
-console.log("Outside function");
-console.log(x);
+// console.log("Outside function");
+// console.log(x);
+
+// //---------------------------------------------
+
+// //* GLOBAL SCOPE
+// //* In a programming environment, the global scope is the scope that contains, and is visible in, all other scopes.
+
+// var name = 'Zekiman';
+
+// function logName(){
+//     console.log(name)
+// };
+
+// logName();  // Zekiman  (We could see the name variable from inside the function because of tha name variable is global.)
+
+
+// //---------------------------------------------
+
+// //* LOCAL SCOPE
+// //* Local scope is a characteristic of variables that makes them local (i.e., the variable name is only bound to its value within a scope which is not the global scope).
+
+// //* Variables are in functions has priority.
+
+// var name = 'Zekiman';
+
+// function logName(){
+//     var name = 'Kubrawoman';
+//     var age = 12
+//     console.log(name)       
+// }  // Kubrawoman  (Functions creates their own scopes)
+
+// //-------
+
+// console.log(name)   
+// // Zekiman  - ('Kubrawoman' cannot not shown because of it is local)
+// // console.log(age)    
+// // // age is not defined (We couldn't variable which in a function from outside)
+
+// //-------
+
+// //*** Blocks doesn't create new scope!
+
+// var nameTest = 'Zekiman';
+
+// console.log(nameTest) // Zekiman
+
+// //-------
+
+// function blockScope(){
+//     var nameTest = 'Kubrawoman';
+//     console.log(nameTest)       
+// } 
+
+// blockScope(); // Kubrawoman
+
+// console.log(nameTest); // Zekiman
+
+// //-------
+
+// a=1; b=2
+
+// if(a!==b){
+//     var nameTest = 'Omerman'
+//     console.log(nameTest)
+// } // Omerman
+
+// //* NOTE THAT! Result is 'Omerman' instead of 'Zekiman'
+// console.log(nameTest) // Omerman
 
 //---------------------------------------------
 
-//* GLOBAL SCOPE
-//* In a programming environment, the global scope is the scope that contains, and is visible in, all other scopes.
+// //* Turkish note: If bloğu oluşturduk ve yeni bir değişken tanımladık. Beklentimiz diğer dillerde olduğu gibi yeniDeg isken adındaki değişkenimizin yalnızca if bloğu içerisinde erişilebilir olması. Ancak ‘var’ ile oluşturulan değişkenler bu şekilde davranmıyor. Javascript’in uzun yıllardır kullanılan standart versiyonunda(ES5) değişkenler function scope tabanlı. Yani tanımlı olduğu fonksiyonda geçerli. If ya da for içerisinde değişkenler kendi yeni bir scope oluşturmuyor. Tanımlı olduğu fonksiyon içerisinde her yerde erişilebilir oluyorlar. O zaman şunu diyebiliriz ki ES5'de var ile tanımlı değişkenler function scope tabanlıdır. Bu durum ECMAScript 6 ile değişmiştir. 
 
-var name = 'Zekiman';
+// //* source: https://tugrulbayrak.medium.com/javascript-scope-65e86de65cff
 
-function logName(){
-    console.log(name)
-};
+// //-------
 
-logName();  // Zekiman  (We could see the name variable from inside the function because of tha name variable is global.)
+// // if(true){
+// //     var model= 'Opel';
+// //     let year = 2016;
+// //     const color = 'white';
 
+// //     console.log('block scope', model, year, color);
+// // }   // block scope Opel 2016 white
+
+// // //* var ile tanımlanan değişkene dışarıdan ulaşılır.
+// // console.log(model)  // Opel
+
+// // //* ES6 ile gelen let ve const block scope oluşturur.
+// // console.log(year) // year is not defined
+// // console.log(color) // color is not defined
+// // console.log('block scope', model, year, color); // year is not defined
+
+// //---------------------------------------------
+
+// var i = 1;
+
+// for (var i =0; i<10; i++ ){
+//     console.log('i', i);
+// }
+
+// console.log(i)  // Result; >>
+// //  i 0
+// //  i 1
+// //  i 2
+// //  i 3
+// //  i 4
+// //  i 5
+// //  i 6
+// //  i 7
+// //  i 8
+// //  i 9
+// //  10
+
+// //-------
+
+// var i = 1;
+
+// for (let i =0; i<10; i++ ){
+//     console.log('i', i);
+// }
+
+// console.log(i)  // Result; >>
+// //  i 0
+// //  i 1
+// //  i 2
+// //  i 3
+// //  i 4
+// //  i 5
+// //  i 6
+// //  i 7
+// //  i 8
+// //  i 9
+// //  1
+
+// //---------------------------------------------
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 184 - DOM
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677630#overview
+// //* https://developer.mozilla.org/en-US/docs/Glossary/DOM
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+
+// console.log(window.document);       // all html 
+// console.log(document.all);          // HTMLAllCollection(23)
+// console.log(document.all.length);   // 23
+// console.log(document.all[10]);      // <p>..</p>
+// console.log(document.head);         // <head>...</head>
+// console.log(document.body);         // <body>...</body>
+// console.log(document.anchors);      // HTMLCollection[]
+// console.log(document.URL);          // http://127.0.0.1:5500/notesHTML.html
+// console.log(document.domain);       // 127.0.0.1
+// console.log(document.images);       // HTMLCollection []
+// console.log(document.title);        // Daily Javascript Learnings
+// console.log(document.forms);        // HTMLCollection []
+// console.log(document.scripts);      // HTMLCollection(2) [script, script]
+// console.log(document.scripts[0].getAttribute('src'));   // notesJS.js
 
 //---------------------------------------------
 
-//* LOCAL SCOPE
-//* Local scope is a characteristic of variables that makes them local (i.e., the variable name is only bound to its value within a scope which is not the global scope).
+//***** COURSE 185 - DOM
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677630#overview
+//* https://developer.mozilla.org/en-US/docs/Glossary/DOM
+//* https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
 
-//* Variables are in functions has priority.
+//---------------------------------------------
 
-var name = 'Zekiman';
+//* getElementById();
+//* https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
 
-function logName(){
-    var name = 'Kubrawoman';
-    var age = 12
-    console.log(name)       
-}  // Kubrawoman  (Functions creates their own scopes)
+//* The Document method getElementById() returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
-//-------
+var val;
 
-console.log(name)   
-// Zekiman  - ('Kubrawoman' cannot not shown because of it is local)
-// console.log(age)    
-// // age is not defined (We couldn't variable which in a function from outside)
+val = document.getElementById('header');
+console.log(val) // <h1 class="app-title" id="header">To Do App</h1>
 
-//-------
+val = document.getElementById('header').id;
+console.log(val) // header
 
-//*** Blocks doesn't create new scope!
+val = document.getElementById('header').className;
+console.log(val) // app-title
 
-var nameTest = 'Zekiman';
+val = document.getElementById('header');
+val = val.id;
+console.log(val) // header
 
-console.log(nameTest) // Zekiman
+val = document.getElementById('header');
+val.style.fontSize='100px';
+val.style.color='red';
+val.style.display='none';
 
-//-------
-
-function blockScope(){
-    var nameTest = 'Kubrawoman';
-    console.log(nameTest)       
-} 
-
-blockScope(); // Kubrawoman
-
-console.log(nameTest); // Zekiman
-
-//-------
-
-a=1; b=2
-
-if(a!==b){
-    var nameTest = 'Omerman'
-    console.log(nameTest)
-} // Omerman
-
-//* NOTE THAT! Result is 'Omerman' instead of 'Zekiman'
-console.log(nameTest) // Omerman
-
-//-------
-
-//* Turkish note: If bloğu oluşturduk ve yeni bir değişken tanımladık. Beklentimiz diğer dillerde olduğu gibi yeniDeg isken adındaki değişkenimizin yalnızca if bloğu içerisinde erişilebilir olması. Ancak ‘var’ ile oluşturulan değişkenler bu şekilde davranmıyor. Javascript’in uzun yıllardır kullanılan standart versiyonunda(ES5) değişkenler function scope tabanlı. Yani tanımlı olduğu fonksiyonda geçerli. If ya da for içerisinde değişkenler kendi yeni bir scope oluşturmuyor. Tanımlı olduğu fonksiyon içerisinde her yerde erişilebilir oluyorlar. O zaman şunu diyebiliriz ki ES5'de var ile tanımlı değişkenler function scope tabanlıdır. Bu durum ECMAScript 6 ile değişmiştir. 
-
-//* source: https://tugrulbayrak.medium.com/javascript-scope-65e86de65cff
-
-//-------
-
-
-
-
+//* querySelector();
 
 
