@@ -3102,16 +3102,232 @@
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 180 - WINDOW
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801938#overview
-//* 
+// //***** COURSE 180 - WINDOW
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801938#overview
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Window 
 
-let val;
-var a = 10;
+// let val;
+// var a = 10;
 
-val = window;
+// val = window;
 
-console.log(val)
+// console.log(val);
+
+// function abc(params) {
+//     return 0;
+// }
+
+// //* METHODS;
+// focus();
+
+// //* alert();
+// //* Displays an alert dialog.
+
+// // alert('Hello world!')
+
+// //---------------------------------------------
+
+// //* prompt();
+// //* Returns the text entered by the user in a prompt dialog.
+
+// // prompt('Please enter username.')
+
+// //---------------------------------------------
+
+// //* confirm();
+// //* Displays a dialog with a message that the user needs to respond to.
+
+// // let valConfirm = confirm('Are you sure?')
+
+// // //----- Using confirm - 1
+// // // if(valConfirm){
+// // //     console.log('OK Sir!')
+// // // }else{
+// // //     console.log('Nope!')
+// // // }
+
+// // //----- Using confirm - 2
+// // valConfirm ? console.log('OK Sir!') : console.log('Nope!');
+
+// //---------------------------------------------
+
+// //* scrollX 
+// //* scrollY 
+// //* (Read only) Returns the number of pixels that the document has already been scrolled horizontally and vertically.
+
+// console.log(scrollX, scrollY)
+
+// //---------------------------------------------
+
+// //* scrool();
+// //* Scrolls the window to a particular place in the document.
+
+// //---------------------------------------------
+
+// //* location;
+// //* Gets/sets the location, or current URL, of the window object.
+
+// console.log(location);
+// console.log(location.href);
+// console.log(location.hostname);
+// console.log(location.host);
+// console.log(location.protocol);
+// console.log(location.search);
+
+// // location.href='https://developer.mozilla.org/en-US/docs/Web/API/Window/location'
+
+// //---------------------------------------------
+
+// //* reload();
+// //* method reloads the current URL, like the Refresh button.
+
+// // location.reload();
+
+// //---------------------------------------------
+
+// //* navigator;
+// //* Returns a reference to the navigator object.
+
+// window.navigator;
+
+// //---------------------------------------------
+
+// //* document;
+// //* (READ ONLY) Returns a reference to the document that the window contains.
+
+// window.document;
+
+// //---------------------------------------------
+
+// //* open(); Opens a new window.
+// //* close(); Closes the current window.
+
+// //---------------------------------------------
+
+// //* focus(); Sets focus on the current window.
+// //* blur(); Sets focus away from the window.
+
+// //---------------------------------------------
+
+// //* print(); Opens the Print Dialog to print the current document.
+
+// //---------------------------------------------
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 181 - SCOPE
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801940#overview
+//* https://developer.mozilla.org/en-US/docs/Glossary/Scope
+//* https://developer.mozilla.org/en-US/docs/Glossary/Global_scope
+//* https://developer.mozilla.org/en-US/docs/Glossary/Local_scope 
+
+
+//* SCOPE
+//* The context in which values and expressions are "visible" or can be referenced. If a variable or other expression is not "in the current scope," then it is unavailable for use. Scopes can also be layered in a hierarchy, so that child scopes have access to parent scopes.
+
+//* (for example) a variable defined exclusively within the function cannot be accessed from outside the function or within other functions. For instance, the following is invalid:
+
+function exampleFunction() {
+    var x = "declared inside function";  // x can only be used in exampleFunction
+    console.log("Inside function");
+    console.log(x);
+}
+
+console.log(x);  // Causes error
+
+//* However, the following code is valid due to the variable being declared outside the function, making it global:
+
+var x = "declared outside function";
+
+exampleFunction();
+
+function exampleFunction() {
+    console.log("Inside function");
+    console.log(x);
+}
+
+console.log("Outside function");
+console.log(x);
+
+//---------------------------------------------
+
+//* GLOBAL SCOPE
+//* In a programming environment, the global scope is the scope that contains, and is visible in, all other scopes.
+
+var name = 'Zekiman';
+
+function logName(){
+    console.log(name)
+};
+
+logName();  // Zekiman  (We could see the name variable from inside the function because of tha name variable is global.)
+
+
+//---------------------------------------------
+
+//* LOCAL SCOPE
+//* Local scope is a characteristic of variables that makes them local (i.e., the variable name is only bound to its value within a scope which is not the global scope).
+
+//* Variables are in functions has priority.
+
+var name = 'Zekiman';
+
+function logName(){
+    var name = 'Kubrawoman';
+    var age = 12
+    console.log(name)       
+}  // Kubrawoman  (Functions creates their own scopes)
+
+//-------
+
+console.log(name)   
+// Zekiman  - ('Kubrawoman' cannot not shown because of it is local)
+// console.log(age)    
+// // age is not defined (We couldn't variable which in a function from outside)
+
+//-------
+
+//*** Blocks doesn't create new scope!
+
+var nameTest = 'Zekiman';
+
+console.log(nameTest) // Zekiman
+
+//-------
+
+function blockScope(){
+    var nameTest = 'Kubrawoman';
+    console.log(nameTest)       
+} 
+
+blockScope(); // Kubrawoman
+
+console.log(nameTest); // Zekiman
+
+//-------
+
+a=1; b=2
+
+if(a!==b){
+    var nameTest = 'Omerman'
+    console.log(nameTest)
+} // Omerman
+
+//* NOTE THAT! Result is 'Omerman' instead of 'Zekiman'
+console.log(nameTest) // Omerman
+
+//-------
+
+//* Turkish note: If bloğu oluşturduk ve yeni bir değişken tanımladık. Beklentimiz diğer dillerde olduğu gibi yeniDeg isken adındaki değişkenimizin yalnızca if bloğu içerisinde erişilebilir olması. Ancak ‘var’ ile oluşturulan değişkenler bu şekilde davranmıyor. Javascript’in uzun yıllardır kullanılan standart versiyonunda(ES5) değişkenler function scope tabanlı. Yani tanımlı olduğu fonksiyonda geçerli. If ya da for içerisinde değişkenler kendi yeni bir scope oluşturmuyor. Tanımlı olduğu fonksiyon içerisinde her yerde erişilebilir oluyorlar. O zaman şunu diyebiliriz ki ES5'de var ile tanımlı değişkenler function scope tabanlıdır. Bu durum ECMAScript 6 ile değişmiştir. 
+
+//* source: https://tugrulbayrak.medium.com/javascript-scope-65e86de65cff
+
+//-------
+
+
+
 
 
 
