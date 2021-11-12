@@ -3395,55 +3395,607 @@
 // //* https://developer.mozilla.org/en-US/docs/Glossary/DOM
 // //* https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
 
-// console.log(window.document);       // all html 
-// console.log(document.all);          // HTMLAllCollection(23)
-// console.log(document.all.length);   // 23
-// console.log(document.all[10]);      // <p>..</p>
-// console.log(document.head);         // <head>...</head>
-// console.log(document.body);         // <body>...</body>
-// console.log(document.anchors);      // HTMLCollection[]
-// console.log(document.URL);          // http://127.0.0.1:5500/notesHTML.html
-// console.log(document.domain);       // 127.0.0.1
-// console.log(document.images);       // HTMLCollection []
-// console.log(document.title);        // Daily Javascript Learnings
-// console.log(document.forms);        // HTMLCollection []
-// console.log(document.scripts);      // HTMLCollection(2) [script, script]
-// console.log(document.scripts[0].getAttribute('src'));   // notesJS.js
+// // console.log(window.document);       // all html 
+// // console.log(document.all);          // HTMLAllCollection(23)
+// // console.log(document.all.length);   // 23
+// // console.log(document.all[10]);      // <p>..</p>
+// // console.log(document.head);         // <head>...</head>
+// // console.log(document.body);         // <body>...</body>
+// // console.log(document.anchors);      // HTMLCollection[]
+// // console.log(document.URL);          // http://127.0.0.1:5500/notesHTML.html
+// // console.log(document.domain);       // 127.0.0.1
+// // console.log(document.images);       // HTMLCollection []
+// // console.log(document.title);        // Daily Javascript Learnings
+// // console.log(document.forms);        // HTMLCollection []
+// // console.log(document.scripts);      // HTMLCollection(2) [script, script]
+// // console.log(document.scripts[0].getAttribute('src'));   // notesJS.js
+
+// //---------------------------------------------
+
+// //***** COURSE 185 - DOM (Selecting Single Element)
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677630#overview
+// //* https://developer.mozilla.org/en-US/docs/Glossary/DOM
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+
+// //---------------------------------------------
+
+// //* getElementById();
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
+
+// //* The Document method getElementById() returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+
+// var val;
+
+// val = document.getElementById('header');
+// console.log(val) // <h1 class="app-title" id="header">To Do App</h1>
+
+// //---------------------------------------------
+
+// //* className
+// //* The className property of the Element interface gets and sets the value of the class attribute of the specified element.
+// console.log(document.getElementById('header').className);
+// // app-title
+
+// //---------------------------------------------
+
+// //* id
+// //* The id property of the Element interface represents the element's identifier, reflecting the id global attribute.
+
+// //* If the id value is not the empty string, it must be unique in a document.
+
+// //* The id is often used with getElementById() to retrieve a particular element. Another common case is to use an element's ID as a selector when styling the document with CSS.
+
+// val = document.getElementById('header').id;
+// console.log(val) // header
+
+// val = document.getElementById('header');
+// val = val.id;
+// console.log(val) // header
+
+// //---------------------------------------------
+
+// //* style
+
+// val = document.getElementById('header');
+// val.style.fontSize='100px';
+// val.style.color='red';
+// // val.style.display='none';
+
+// //---------------------------------------------
+
+// //* innerText
+// //* The innerText property of the HTMLElement interface represents the "rendered" text content of a node and its descendants.
+
+// //* As a getter, it approximates the text the user would get if they highlighted the contents of the element with the cursor and then copied it to the clipboard.
+
+// val = document.getElementById('header').innerText='My To Do App';
+// val = document.getElementById('header').innerText='<b>My To Do App</b>'; //<b> doesn't affect
+
+// //---------------------------------------------
+
+// //* innerHTML
+// //* The Element property innerHTML gets or sets the HTML or XML markup contained within the element. To insert the HTML into the document rather than replace the contents of an element, use the method insertAdjacentHTML().
+
+// val = document.getElementById('header').innerHTML='Your To Do App';
+// val = document.getElementById('header').innerHTML='<b>Your To Do App</b>'; // made bolder
+
+// //---------------------------------------------
+
+// //* querySelector();
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+
+// //* The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
+
+// console.log(document.querySelector('#header'));
+// // <h1 class="app-title" id="header" style="font-size: 100px; color: red;"><b>Your To Do App</b></h1>
+
+// console.log(document.querySelector('.card-header'));
+// // <div class="card-header"> New Task </div>
+
+// console.log(document.querySelector('div')); 
+// // first div
+
+// console.log(document.querySelector('p')); 
+// // <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In fugit sapiente tempora praesentium minus cum quos alias, quam magni excepturi doloribus! Esse perspiciatis laborum repudiandae velit similique quidem pariatur culpa?</p>
+
+// val = document.querySelector('li');
+// console.log(val)
+// //  <li class="list-group-item list-group-item-secondary">To do item
+// //  <a href="#" class="delete-item float-right">
+// //  <i class="fas fa-times"></i>
+// //  </a>
+// //  </li>
+
+// val.style.color='red';  // Only first li will be red color
+
+// val = document.querySelector('li:last-child');
+// val.style.color='yellow';
+
+// val = document.querySelector('li:nth-child(3)');
+// val.style.color='orange';
+
+// val = document.querySelector('li:nth-child(3)');
+// val.textContent='task item';
+
+// val = document.querySelector('li:nth-child(4)');
+// val.textContent='task item';
+
+// //---------------------------------------------
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 186 - DOM (Selecting Multiple Elements)
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801948#overview
+// //* https://developer.mozilla.org/en-US/docs/Glossary/DOM
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+
+
+// //---------------------------------------------
+
+// //* getElementsByClassName();
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName
+
+// //* The getElementsByClassName method of Document interface returns an array-like object of all child elements which have all of the given class name(s).
+
+// //* When called on the document object, the complete document is searched, including the root node. You may also call getElementsByClassName() on any element; it will return only elements which are descendants of the specified root element with the given class name(s).
+
+// //* Warning: This is a live HTMLCollection. Changes in the DOM will reflect in the array as the changes occur. If an element selected by this array no longer qualifies for the selector, it will automatically be removed. Be aware of this for iteration purposes.
+
+// val = document.getElementsByClassName('list-group-item');
+// console.log(val)
+// // HTMLCollection(4) [li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-danger]
+
+// val = val[0];
+// console.log(val)
+// // <li class="list-group-item list-group-item-secondary">To do item
+// // <a href="#" class="delete-item float-right">
+// // <i class="fas fa-times"></i>
+// // </a>
+// // </li>
+
+// //---------------------------------------------
+
+// val = document.getElementsByClassName('list-group-item');
+// for(let i=0; i<val.length; i++){
+//     console.log(val[i])
+// }  
+
+// // HTMLCollection(4) [li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-danger]
+
+// //------
+
+// for(let i=0; i<val.length; i++){
+//     val[i].style.color='brown';
+//     val[i].textContent='New item';
+// }  
+// // this made brown the all val items, and changed the text content as 'new item'
+
+
+// //---------------------------------------------
+
+// //* getElementsTagName();
+// //* The Element.getElementsByTagName() method returns a live HTMLCollection of elements with the given tag name.
+
+// val = document.getElementsByTagName('li');
+// console.log(val);
+// // HTMLCollection(4) [li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-danger]
+
+// val = document.getElementsByTagName('a');
+// console.log(val);
+// // HTMLCollection [a#btnDeleteAll.btn.btn-outline-danger.btn-sm.delete-all.float-right, btnDeleteAll: a#btnDeleteAll.btn.btn-outline-danger.btn-sm.delete-all.float-right]
+
+// val = document.getElementById('task-list').getElementsByTagName('a');
+// console.log(val);
+
+// //---------------------------------------------
+
+// //* querySelectorAll()
+// //* The Document method querySelectorAll() returns a static (not live) NodeList representing a list of the document's elements that match the specified group of selectors.
+
+// val = document.querySelectorAll('li');
+
+// console.log(val)
+// // NodeList(4) [li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-danger]
+
+// val.forEach(function(item){
+//     console.log(item.textContent)
+// }) // 4 New item
+
+// //------
+
+// val.forEach(function(item,index){
+//     console.log(item.textContent=`${index}`)
+// }) // it ordered them all from 0 to 3
+
+// //------
+
+// val = document.querySelectorAll('li:nth-child(odd)');
+// console.log(val)
+// // NodeList(2) [li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary]
+
+// val.forEach(function(item){
+//     console.log(item.textContent)
+// })  // result: 0 and 2 
+
+// //------
+
+// document.querySelectorAll('li:nth-child(even)').forEach(function(item){
+//     console.log(item.textContent)
+// })  // result; 1 and 3
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 188 - DOM & EVENTS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801950#overview
+
+
+// var list = document.querySelector('.list-group');
+// var val = list;
+
+// console.log(val)
+// // <ul id="task-list" class="list-group">
+// // 				<li class="list-group-item list-group-item-secondary">To do item
+// // 					<a href="#" class="delete-item float-right">
+// // 						<i class="fas fa-times"></i>
+// // 					</a>
+// // 				</li>
+// // 				<li class="list-group-item list-group-item-secondary">To do item
+// // 					<a href="#" class="delete-item float-right">
+// // 						<i class="fas fa-times"></i>
+// // 					</a>
+// // 				</li>
+// // 				<li class="list-group-item list-group-item-secondary">To do item
+// // 					<a href="#" class="delete-item float-right">
+// // 						<i class="fas fa-times"></i>
+// // 					</a>
+// // 				</li>
+// // 				<li class="list-group-item list-group-item-danger">To do item
+// // 					<a href="#" class="delete-item float-right">
+// // 						<i class="fas fa-times"></i>
+// // 					</a>
+// // 				</li>
+			
+// // 			</ul>
+
+// //* Differences between NodeList and HTMLCollection
+
+// //* ChildNodes
+// //* The read-only childNodes property of the Node interface returns a live NodeList of child nodes of the given element where the first child node is assigned index 0. Child nodes include elements, text and comments.
+
+// //* Note: The NodeList being live means that its content is changed each time new children are added or removed.
+
+
+// console.log(list.childNodes);
+// // NodeList(9) [text, li.list-group-item.list-group-item-secondary, text, li.list-group-item.list-group-item-secondary, text, li.list-group-item.list-group-item-secondary, text, li.list-group-item.list-group-item-danger, text]
+
+// console.log(list.children);
+// // HTMLCollection(4) [li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-danger]
+
+// console.log(list.childNodes[0]); // #text  (text node)
+// console.log(list.childNodes[0].nodeName); // #text
+// console.log(list.childNodes[0].nodeType); // 3 (text)
+
+// //* An integer which specifies the type of the node. Possible values are:
+
+// //*  Node.ELEMENT_NODE (1)
+// //*  An Element node like <p> or <div>.
+
+// //*  Node.ATTRIBUTE_NODE (2)
+// //*  An Attribute of an Element.
+   
+// //*  Node.TEXT_NODE (3)
+// //*  The actual Text inside an Element or Attr.
+ 
+// //*  Node.CDATA_SECTION_NODE(4)
+// //*  A CDATASection, such as <!CDATA[[ … ]]>
+
+// //*  Node.PROCESSING_INSTRUCTION_NODE (7)
+// //*  A ProcessingInstruction of an XML document, such as <?xml-stylesheet … ?>.
+
+// //*  Node.COMMENT_NODE (8)
+// //*  A Comment node, such as <!-- … -->.
+
+// //*  Node.DOCUMENT_NODE (9)
+// //*  A Document node.
+
+// //*  Node.DOCUMENT_TYPE_NODE (10)
+// //*  A DocumentType node, such as <!DOCTYPE html>.
+
+// //*  Node.DOCUMENT_FRAGMENT_NODE (11)
+// //*  A DocumentFragment node.
+
+// console.log(list.childNodes[1].nodeType); // 1 (element node)
+
+// //-------
+
+// //* children
+// //* The read-only children property returns a live HTMLCollection which contains all of the child elements of the element upon which it was called.
+
+// console.log(list.children); 
+// // HTMLCollection(4) [li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-secondary, li.list-group-item.list-group-item-danger]
+
+// console.log(list.children[0]);
+// //  <li class="list-group-item list-group-item-secondary">To do item
+// //  					<a href="#" class="delete-item float-right">
+// //  						<i class="fas fa-times"></i>
+// //  					</a>
+// //  				</li>
+
+// console.log(list.children[0].textContent='new ITEM');
+// // new ITEM
+
+// console.log(list.children[3].children);
+// // HTMLCollection [a.delete-item.float-right]
+
+// //---------------------------------------------
+
+// //* Node.firstChild
+// //* The read-only firstChild property of the Node interface returns the node's first child in the tree, or null if the node has no children.
+
+// //* If the node is a Document, this property returns the first node in the list of its direct children.
+
+// //* Note: This property returns any type of node that is the first child of this one. It may be a Text or a Comment node. If you want to get the first Element that is a child of another element, consider using Element.firstElementChild.
+
+// console.log(list.firstChild);
+// // #text
+
+// //-------
+
+// //* Element.firstElementChild
+// //* The Element.firstElementChild read-only property returns an element's first child Element, or null if there are no child elements.
+
+// //* Element.firstElementChild includes only element nodes. To get all child nodes, including non-element nodes like text and comment nodes, use Node.firstChild.
+
+// console.log(list.firstElementChild);
+// // <li class="list-group-item list-group-item-secondary">new ITEM</li>
+
+// //-------
+
+// //* Node.lastChild
+// //* Element.lastElementChild
+
+// console.log(list.lastChild);
+// // #text
+
+// console.log(list.lastElementChild);
+// //   <li class="list-group-item list-group-item-danger">To do item
+// //  <a href="#" class="delete-item float-right">
+// //  <i class="fas fa-times"></i>
+// //  </a>
+// //  </li>
+
+
+// //---------------------------------------------
+
+// console.log(list.childElementCount) // 4
+// console.log(list.parentNode)
+// // body > div.container.p-3 > div.card.mt-3
+
+// console.log(list.parentElement)
+// // body > div.container.p-3 > div.card.mt-3
+
+// console.log(list.parentElement.parentElement)
+// // body > div.container.p-3
+
+// //---------------------------------------------
+
+// //* Node.nextSibling & Element.nextElementSibling
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Node/nextSibling
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Element/nextElementSibling
+
+// //* The read-only nextSibling property of the Node interface returns the node immediately following the specified one in their parent's childNodes, or returns null if the specified node is the last child in the parent element.
+
+// //* Note: Browsers insert Text nodes into a document to represent whitespace in the source markup. Therefore a node obtained, for example, using Node.firstChild or Node.previousSibling may refer to a whitespace text node rather than the actual element the author intended to get.
+
+// //* The article Whitespace in the DOM contains more information about this behavior.
+
+// //* You can use Element.nextElementSibling to obtain the next element skipping any whitespace nodes, other between-element text, or comments.
+
+// //* To navigate the opposite way through the child nodes list use Node.previousSibling.
+
+// //* The Element.nextElementSibling read-only property returns the element immediately following the specified one in its parent's children list, or null if the specified element is the last one in the list.
+
+// console.log(list.children[0]);
+// // #task-list > li:nth-child(1)
+
+// console.log(list.children[0].nextSibling);  
+// // #text
+// console.log(list.children[0].nextElementSibling);
+// // <li class="list-group-item list-group-item-secondary">To do item </li>
+
+// //* Element.previousElementSibling
+// //* Node.previousSibling
+
+// console.log(list.children[1].previousSibling);  
+// // #text
+// console.log(list.children[1].previousElementSibling);
+// // <li class="list-group-item list-group-item-secondary">new ITEM</li>
+
+// //-------
+
+// for(let i=0; i<list.childNodes.length; i++){
+//     if(list.childNodes[i].nodeType==1){
+//         console.log(list.childNodes[i])
+//     }
+// }
+
+// // it prints childnodes which only has type of element
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 189 - CREATING ELEMENTS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801952#overview
+
+// //* createElement()
+// //* In an HTML document, the document.createElement() method creates the HTML element specified by tagName, or an HTMLUnknownElement if tagName isn't recognized.
+
+// li = document.createElement('li')
+
+// //---------------------------------------------
+
+// //* adding class (set class)
+// li.className='list-group-item list-group-item-secondary'
+
+// console.log(li) 
+// // <li class="list-group-item list-group-item-secondary"></li>
+
+// //---------------------------------------------
+
+// //* setAttribute()
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+
+// //* Sets the value of an attribute on the specified element. If the attribute already exists, the value is updated; otherwise a new attribute is added with the specified name and value.
+
+// //* To get the current value of an attribute, use getAttribute(); to remove an attribute, call removeAttribute().
+
+// li.setAttribute('title','new item')
+// // <li class="list-group-item list-group-item-secondary" title="new item"></li>
+
+// //---------------------------------------------
+
+// //* Creating Text
+// //* Document.createTextNode() 
+// //* Creates a new Text node. This method can be used to escape HTML characters.
+
+// text = document.createTextNode('NEW ITEM');
+
+// //---------------------------------------------
+
+// //* adding text node
+// //* Node.appendChild()
+// //* The appendChild() method of the Node interface adds a node to the end of the list of children of a specified parent node. If the given child is a reference to an existing node in the document, appendChild() moves it from its current position to the new position (there is no requirement to remove the node from its parent node before appending it to some other node).
+
+// //* This means that a node can't be in two points of the document simultaneously. So if the node already has a parent, the node is first removed, then appended at the new position. The Node.cloneNode() method can be used to make a copy of the node before appending it under the new parent. Copies made with cloneNode are not be automatically kept in sync.
+
+// //* If the given child is a DocumentFragment, the entire contents of the DocumentFragment are moved into the child list of the specified parent node.
+
+// //* Note: Unlike this method, the Element.append() method supports multiple arguments and appending strings. You can prefer using it if your node is an element.
+
+// li.appendChild(text);
+// // <li class="list-group-item list-group-item-secondary" title="new item">NEW ITEM</li>
+
+// //---------------------------------------------
+
+// a = document.createElement('a');
+// a.setAttribute('href','https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild')
+// a.className='delete-item float-right'
+// a.innerHTML='<i class="fas fa-times"></i>'
+
+// li.appendChild(a)
+// // <li class="list-group-item list-group-item-secondary" title="new item">NEW ITEM<a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild" class="delete-item float-right"><i class="fas fa-times"></i></a></li>
+
+// ulList = document.querySelector('ul')
+// ulList.appendChild(li);
+
+// console.log(ulList);
+// // it added the created li element to at the end of ul
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 190 - REMOVING & CHANGING NODES
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801956#overview
+
+taskList = document.querySelector('#task-list');
+console.log(taskList);
 
 //---------------------------------------------
 
-//***** COURSE 185 - DOM
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677630#overview
-//* https://developer.mozilla.org/en-US/docs/Glossary/DOM
-//* https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+//* Element.remove()
+//* The method removes the element from the tree it belongs to.
+
+// taskList.remove(); // removes all the element
+// taskList.childNodes[1].remove(); // removes the node
+// taskList.children[0].remove(); // removes the children
 
 //---------------------------------------------
 
-//* getElementById();
-//* https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
+//* Node.removeChild()
+//* The removeChild() method of the Node interface removes a child node from the DOM and returns the removed node.
 
-//* The Document method getElementById() returns an Element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+//* Note: As long as a reference is kept on the removed child, it still exists in memory, but is no longer part of the DOM. It can still be reused later in the code.
 
-var val;
+//* If the return value of removeChild() is not stored, and no other reference is kept, it will be automatically deleted from memory after a short time.
 
-val = document.getElementById('header');
-console.log(val) // <h1 class="app-title" id="header">To Do App</h1>
+console.log(taskList.removeChild(taskList.children[3]))
+//  <li class="list-group-item list-group-item-danger">To do item
+// <a href="#" class="delete-item float-right">
+// <i class="fas fa-times"></i>
+// </a>
+// </li>
 
-val = document.getElementById('header').id;
-console.log(val) // header
+//---------------------------------------------
 
-val = document.getElementById('header').className;
-console.log(val) // app-title
+//* removeAttribute()
+//* The Element method removeAttribute() removes the attribute with the specified name from the element.
 
-val = document.getElementById('header');
-val = val.id;
-console.log(val) // header
-
-val = document.getElementById('header');
-val.style.fontSize='100px';
-val.style.color='red';
-val.style.display='none';
-
-//* querySelector();
+taskList.children[0].removeAttribute('class')
+console.log(taskList.children[0])
+//  <li>To do item
+// <a href="#" class="delete-item float-right">
+// <i class="fas fa-times"></i>
+// </a>
+// </li>
 
 
+for (let i=0; i<taskList.children.length; i++){
+    taskList.children[i].removeAttribute('class')
+}
+
+console.log(taskList)
+/* <ul id="task-list" class="list-group">
+				<li>To do item
+					<a href="#" class="delete-item float-right">
+						<i class="fas fa-times"></i>
+					</a>
+				</li>
+				<li>To do item
+					<a href="#" class="delete-item float-right">
+						<i class="fas fa-times"></i>
+					</a>
+				</li>
+				<li>To do item
+					<a href="#" class="delete-item float-right">
+						<i class="fas fa-times"></i>
+					</a>
+				</li>
+				
+			
+			</ul>  */
+
+//---------------------------------------------
+
+//* Replacing The Elements
+
+cardHeader = document.querySelector('.card-header');
+console.log(cardHeader)
+// <div class="card-header">
+// New Task
+// </div>
+
+h2 = document.createElement('h2');
+h2.setAttribute('class','card-header');
+h2.appendChild(document.createTextNode('My List'))
+
+parent = document.querySelector('.card')
+
+//----------
+
+//* Node.replaceChild()
+//* .mozilla.org/en-US/docs/Web/API/Node/replaceChild
+
+//* The replaceChild() method of the Node element replaces a child node within the given (parent) node.
+
+parent.replaceChild(h2,cardHeader)
+console.log(parent)
+
+//----------
+
+//* Classes
