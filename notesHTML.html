@@ -7,16 +7,81 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Daily Javascript Learnings</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="notesJS.js">
-    
+        
     </head>
-    <body style="background-color: #263238;">
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <body style="background-color: #263238; color: azure;">
+    
+	<div class="container p-3">	
+		<h1 class="app-title" id="header">To Do App</h1>	
+		<div class="card">
+			<div class="card-header">
+				New Task
+			</div>
+			<div class="card-body">
+				<form id="addTaskForm">
+					<div class="input-group mb-3">
+						<input id="txtTaskName" name="taskName" type="text" class="form-control" placeholder="Type a new task" aria-describedby="btnAddNewTask">
+						<div class="input-group-append">
+							<button class="btn btn-primary" type="button" id="btnAddNewTask">
+								<i class="fas fa-plus"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="card mt-3">
+			<div class="card-header">
+				<h5>XXX</h5>Task List
+				    <a id="btnDeleteAll" href="#" class="btn btn-outline-danger btn-sm delete-all float-right">	
+						Delete All
+					</a>
+			</div>
+
+			<ul id="task-list" class="list-group">
+				<li class="list-group-item list-group-item-secondary">To do item
+					<a href="#" class="delete-item float-right">
+						<i class="fas fa-times"></i>
+					</a>
+				</li>
+				<li class="list-group-item list-group-item-secondary">To do item
+					<a href="#" class="delete-item float-right">
+						<i class="fas fa-times"></i>
+					</a>
+				</li>
+				<li class="list-group-item list-group-item-secondary">To do item
+					<a href="#" class="delete-item float-right">
+						<i class="fas fa-times"></i>
+					</a>
+				</li>
+				<li class="list-group-item list-group-item-danger">To do item
+					<a href="#" class="delete-item float-right">
+						<i class="fas fa-times"></i>
+					</a>
+				</li>
+			
+			</ul>
+
+		</div>
+	</div>
+    <div>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In fugit sapiente tempora praesentium minus cum quos alias, quam magni excepturi doloribus! Esse perspiciatis laborum repudiandae velit similique quidem pariatur culpa?</p>
+        <p>Magnam quibusdam excepturi esse provident nulla voluptatibus, autem distinctio aperiam repellat. Aut repellat culpa veniam nam at officia repudiandae, fugit nulla fugiat amet commodi sed? Quis consequatur quo fuga tempore!</p>
+        <p>Distinctio laudantium quis quasi, cumque consequuntur nemo natus labore facere odio enim? Quisquam nam laboriosam asperiores voluptatibus quod explicabo, praesentium adipisci nesciunt distinctio obcaecati ut perspiciatis molestias quia inventore ab.</p>
+        <p>Culpa pariatur natus provident voluptatum facilis a animi placeat quos magni laborum nihil, corporis blanditiis dolorum nobis, minima, ratione fugiat reprehenderit nostrum officia repellat optio perferendis. Excepturi maiores dicta possimus?</p>
+        <p>Alias sapiente tempore maiores aperiam odit ratione doloribus excepturi eum libero, est laudantium nihil ipsam modi unde. Molestiae dicta id, doloremque harum porro eaque nobis in nam sed illum ab.</p>
+    </div>
+    <div>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis itaque voluptatibus id sequi fugiat, tempora, architecto consequuntur minus eum odio quasi possimus sunt incidunt veniam. Corporis cupiditate fugit laudantium incidunt.</p>
+        <p>Culpa magnam sit eius architecto dolorum aperiam quisquam atque et nemo porro, iusto unde quo obcaecati, adipisci ipsam molestias deleniti itaque voluptatum libero quae ab dolore excepturi sunt eveniet? Fugit!</p>
+        <p>Suscipit quod magnam ad dolore earum commodi eaque dolores aperiam eos accusamus nesciunt vitae hic cum nisi voluptatum tenetur cupiditate expedita accusantium cumque, reiciendis minus recusandae voluptatibus, ipsum mollitia. Eius.</p>
+        <p>Ipsam iste nisi quis nemo, consectetur doloribus natus modi a nostrum eos quaerat? Dolorum cumque dolore inventore corporis culpa voluptatum, atque delectus, error nisi fuga tenetur sequi vel, quae saepe!</p>
+        <p>Alias harum quisquam ab, dicta mollitia hic fugiat explicabo labore, nisi soluta error rerum in! Incidunt rem doloremque totam quisquam ea eveniet, fugiat voluptate officia corrupti asperiores nihil fugit corporis!</p>
+    </div>
         
         <script src="notesJS.js" async defer></script>
     </body>

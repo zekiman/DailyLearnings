@@ -3900,102 +3900,357 @@
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 190 - REMOVING & CHANGING NODES
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801956#overview
+// //***** COURSE 190 - REMOVING & CHANGING NODES
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801956#overview
 
-taskList = document.querySelector('#task-list');
-console.log(taskList);
+// taskList = document.querySelector('#task-list');
+// console.log(taskList);
 
-//---------------------------------------------
+// //---------------------------------------------
 
-//* Element.remove()
-//* The method removes the element from the tree it belongs to.
+// //* Element.remove()
+// //* The method removes the element from the tree it belongs to.
 
-// taskList.remove(); // removes all the element
-// taskList.childNodes[1].remove(); // removes the node
-// taskList.children[0].remove(); // removes the children
+// // taskList.remove(); // removes all the element
+// // taskList.childNodes[1].remove(); // removes the node
+// // taskList.children[0].remove(); // removes the children
 
-//---------------------------------------------
+// //---------------------------------------------
 
-//* Node.removeChild()
-//* The removeChild() method of the Node interface removes a child node from the DOM and returns the removed node.
+// //* Node.removeChild()
+// //* The removeChild() method of the Node interface removes a child node from the DOM and returns the removed node.
 
-//* Note: As long as a reference is kept on the removed child, it still exists in memory, but is no longer part of the DOM. It can still be reused later in the code.
+// //* Note: As long as a reference is kept on the removed child, it still exists in memory, but is no longer part of the DOM. It can still be reused later in the code.
 
-//* If the return value of removeChild() is not stored, and no other reference is kept, it will be automatically deleted from memory after a short time.
+// //* If the return value of removeChild() is not stored, and no other reference is kept, it will be automatically deleted from memory after a short time.
 
-console.log(taskList.removeChild(taskList.children[3]))
-//  <li class="list-group-item list-group-item-danger">To do item
-// <a href="#" class="delete-item float-right">
-// <i class="fas fa-times"></i>
-// </a>
-// </li>
+// console.log(taskList.removeChild(taskList.children[3]))
+// //  <li class="list-group-item list-group-item-danger">To do item
+// // <a href="#" class="delete-item float-right">
+// // <i class="fas fa-times"></i>
+// // </a>
+// // </li>
 
-//---------------------------------------------
+// //---------------------------------------------
 
-//* removeAttribute()
-//* The Element method removeAttribute() removes the attribute with the specified name from the element.
+// //* removeAttribute()
+// //* The Element method removeAttribute() removes the attribute with the specified name from the element.
 
-taskList.children[0].removeAttribute('class')
-console.log(taskList.children[0])
-//  <li>To do item
-// <a href="#" class="delete-item float-right">
-// <i class="fas fa-times"></i>
-// </a>
-// </li>
+// taskList.children[0].removeAttribute('class')
+// console.log(taskList.children[0])
+// //  <li>To do item
+// // <a href="#" class="delete-item float-right">
+// // <i class="fas fa-times"></i>
+// // </a>
+// // </li>
 
 
-for (let i=0; i<taskList.children.length; i++){
-    taskList.children[i].removeAttribute('class')
-}
+// for (let i=0; i<taskList.children.length; i++){
+//     taskList.children[i].removeAttribute('class')
+// }
 
-console.log(taskList)
-/* <ul id="task-list" class="list-group">
-				<li>To do item
-					<a href="#" class="delete-item float-right">
-						<i class="fas fa-times"></i>
-					</a>
-				</li>
-				<li>To do item
-					<a href="#" class="delete-item float-right">
-						<i class="fas fa-times"></i>
-					</a>
-				</li>
-				<li>To do item
-					<a href="#" class="delete-item float-right">
-						<i class="fas fa-times"></i>
-					</a>
-				</li>
+// console.log(taskList)
+// /* <ul id="task-list" class="list-group">
+// 				<li>To do item
+// 					<a href="#" class="delete-item float-right">
+// 						<i class="fas fa-times"></i>
+// 					</a>
+// 				</li>
+// 				<li>To do item
+// 					<a href="#" class="delete-item float-right">
+// 						<i class="fas fa-times"></i>
+// 					</a>
+// 				</li>
+// 				<li>To do item
+// 					<a href="#" class="delete-item float-right">
+// 						<i class="fas fa-times"></i>
+// 					</a>
+// 				</li>
 				
 			
-			</ul>  */
+// 			</ul>  */
 
-//---------------------------------------------
+// //---------------------------------------------
 
-//* Replacing The Elements
+// //* Replacing The Elements
 
-cardHeader = document.querySelector('.card-header');
-console.log(cardHeader)
-// <div class="card-header">
-// New Task
-// </div>
+// cardHeader = document.querySelector('.card-header');
+// console.log(cardHeader)
+// // <div class="card-header">
+// // New Task
+// // </div>
 
-h2 = document.createElement('h2');
-h2.setAttribute('class','card-header');
-h2.appendChild(document.createTextNode('My List'))
+// h2 = document.createElement('h2');
+// h2.setAttribute('class','card-header');
+// h2.appendChild(document.createTextNode('My List'))
 
-parent = document.querySelector('.card')
+// parent = document.querySelector('.card')
 
-//----------
+// //----------
 
-//* Node.replaceChild()
-//* .mozilla.org/en-US/docs/Web/API/Node/replaceChild
+// //* Node.replaceChild()
+// //* .mozilla.org/en-US/docs/Web/API/Node/replaceChild
 
-//* The replaceChild() method of the Node element replaces a child node within the given (parent) node.
+// //* The replaceChild() method of the Node element replaces a child node within the given (parent) node.
 
-parent.replaceChild(h2,cardHeader)
-console.log(parent)
+// parent.replaceChild(h2,cardHeader)
+// console.log(parent)
 
-//----------
+// //---------------------------------------------
 
-//* Classes
+// //* Classes
+
+// //* Element.classList
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+
+// //* The Element.classList is a read-only property that returns a live DOMTokenList collection of the class attributes of the element. This can then be used to manipulate the class list.
+
+// //*Using classList is a convenient alternative to accessing an element's list of classes as a space-delimited string via element.className.
+
+// link = taskList.children[0].children[0]
+
+// val = link.className;
+// val = link.classList;
+// // DOMTokenList(2) ['delete-item', 'float-right', value: 'delete-item float-right']
+// // 0: "delete-item"
+// // 1: "float-right"
+
+// val = link.classList[0];
+// // delete-item
+
+// val = link.classList[1];
+// // float-right
+
+// link.classList.add('new')
+// // DOMTokenList(3) ['delete-item', 'float-right', 'new', value: 'delete-item float-right new']
+// //	0: "delete-item"
+// //	1: "float-right"
+// //	2: "new
+
+// link.classList.remove('new')
+// //	DOMTokenList(2) ['delete-item', 'float-right', value: 'delete-item float-right']
+// //	0: "delete-item"
+// //	1: "float-right"
+
+// //---------------------------------------------
+
+// //* Attribute
+
+// //* Element.getAttribute()
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute
+
+// //* The getAttribute() method of the Element interface returns the value of a specified attribute on the element.
+
+// //* If the given attribute does not exist, the value returned will either be null or "" (the empty string); see Non-existing attributes for details.
+
+// val = link.getAttribute('class')
+// // delete-item float-right
+
+// //---------------------------------------------
+
+// //* Element.setAttribute()
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+
+// //* Sets the value of an attribute on the specified element. If the attribute already exists, the value is updated; otherwise a new attribute is added with the specified name and value.
+
+// //* To get the current value of an attribute, use getAttribute(); to remove an attribute, call removeAttribute().
+
+// val = link.getAttribute('href')	
+// // #
+
+// val = link.setAttribute('href','https://developer.mozilla.org')	
+// // https://developer.mozilla.org
+
+
+// console.log(link)
+// // 	<a href="https://developer.mozilla.org" class="delete-item float-right">
+// //	<i class="fas fa-times"></i>
+// //	</a>
+
+// //---------------------------------------------
+
+// //* Element.hasAttribute()
+// //* The Element.hasAttribute() method returns a Boolean value indicating whether the specified element has the specified attribute or not.
+
+// console.log(link.hasAttribute('href')); 	// true
+// console.log(link.hasAttribute('data-id')); 	// false
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 191 - EVENT LISTENERS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801960#overview
+
+
+// //* addEventListener()
+// //* The addEventListener() method of the EventTarget interface sets up a function that will be called whenever the specified event is delivered to the target.
+
+// //* Common targets are Element, or its children, Document, and Window, but the target may be any object that supports events (such as XMLHttpRequest).
+
+// btn = document.querySelector('#btnDeleteAll');
+// // <a id="btnDeleteAll" href="#" class="btn btn-outline-danger btn-sm delete-all float-right"> Delete All </a>
+
+// //---------------------------------------------
+
+// //* click event
+// btn.addEventListener('click',function(){
+// 	console.log('btn is clicked')
+// })
+
+// //----------
+
+// //* or we can express the same thing using this method
+
+// function btnClick(){
+// 	console.log('button is clicked')
+// }
+
+// btn.addEventListener('click',btnClick);
+
+// //---------------------------------------------
+
+// //* Event.preventDefault()
+// //* The preventDefault() method of the Event interface tells the user agent that if the event does not get explicitly handled, its default action should not be taken as it normally would be.
+
+// btn.addEventListener('click',function(e){
+// 	console.log('btn is clicked');
+// 	e.preventDefault();
+// })
+
+// //---------------------------------------------
+
+// //* console.log(e)
+
+// btn.addEventListener('click',function(e){
+// 	var val = e;
+// 	console.log(val)
+// 	// PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+
+// 	val = e.type;
+// 	console.log(val)
+// 	//click
+// })
+
+// //---------------------------------------------
+
+// //* event.target
+
+// btn.addEventListener('click',function(e){
+// 	val = e.target;
+// 	console.log(val);
+// 	// <a id="btnDeleteAll" href="#" class="btn btn-outline-danger btn-sm delete-all float-right">	
+// 	// Delete All
+// 	// </a>
+
+// 	val = e.target.classList;
+// 	console.log(val);
+// //	DOMTokenList(5) ['btn', 'btn-outline-danger', 'btn-sm', 'delete-all', 'float-right', //	value: 'btn btn-outline-danger btn-sm delete-all float-right']
+// //	0: "btn"
+// //	1: "btn-outline-danger"
+// //	2: "btn-sm"
+// //	3: "delete-all"
+// //	4: "float-right"
+// })
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 192 - MOUSE EVENTS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801962#overview
+
+// btn = document.querySelector('#btnDeleteAll');
+// ul = document.querySelector('#task-list')
+
+// function eventHandler(event){
+
+// 	//* event.type
+// 	console.log(event.type)
+
+// }
+// //---------------------------------------------
+
+// //* Click
+// btn.addEventListener('click',eventHandler);		// click
+// ul.addEventListener('click',eventHandler);		// click
+
+// //---------------------------------------------
+
+// //* Doubleclick
+// btn.addEventListener('dblclick',eventHandler);	// dblclick
+// ul.addEventListener('dblclick',eventHandler);	// dblclick
+
+// //---------------------------------------------
+
+// //* Mousedown
+// btn.addEventListener('mousedown',eventHandler);	// mousedown
+// ul.addEventListener('mousedown',eventHandler);	// mousedown
+
+// //* Mouseup
+// btn.addEventListener('mouseup',eventHandler);	// mouseup
+// ul.addEventListener('mouseup',eventHandler);	// mouseup
+
+// //* Note: This differs from the click event in that click is fired after a full click action occurs; that is, the mouse button is pressed and released while the pointer remains inside the same element. mousedown is fired the moment the button is initially pressed.
+
+// //---------------------------------------------
+
+// //* Mouseenter
+// btn.addEventListener('mouseenter',eventHandler);	// mouseenter
+// ul.addEventListener('mouseenter',eventHandler);		// mouseenter
+
+// //* Mouseleave
+// btn.addEventListener('mouseleave',eventHandler);	// mouseleave
+// ul.addEventListener('mouseleave',eventHandler);		// mouseleave
+
+// //* The mouseenter event is fired at an Element when a pointing device (usually a mouse) is initially moved so that its hotspot is within the element at which the event was fired.
+
+// //* The mouseleave event is fired at an Element when the cursor of a pointing device (usually a mouse) is moved out of it.
+
+// //---------------------------------------------
+
+// //* Mouseover
+// btn.addEventListener('mouseover',eventHandler);	// mouseover
+// ul.addEventListener('mouseover',eventHandler);	// mouseover
+
+// //* Mouseout
+// btn.addEventListener('mouseout',eventHandler);	// mouseout
+// ul.addEventListener('mouseout',eventHandler);	// mouseout
+
+// //* The mouseover event is fired at an Element when a pointing device (such as a mouse or trackpad) is used to move the cursor onto the element or one of its child elements.
+
+// //* The mouseout event is fired at an Element when a pointing device (usually a mouse) is used to move the cursor so that it is no longer contained within the element or one of its children.
+
+// //* mouseout is also delivered to an element if the cursor enters a child element, because the child element obscures the visible area of the element.
+
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseout_event
+
+// //* Turkish note: Mouseleave ile Mouseout farkı;
+// //* Mouseleave children elementlerin üstündeyken çalışmaz.
+// //* ama mouseout herhangi bir alt elementin üstüne gelinse dahil aktif olur.
+
+// //* örneğin bir div>ul>li>a hiyerarşisinde div elementine mouseleave ve mouseout eventlerini eklediğimizi düşünelim. mouse ile sırasıyla ul, li ve a üzerine geldiğimizde her birinde mouseout eventi çalışmış olacaktır, ama hala div elementinin içinde olduğumuzdan mouseleave henüz çalışmaz.
+
+// //---------------------------------------------
+
+// //* Mousemove
+
+// btn.addEventListener('mousemove',eventHandler);	// mousemove
+// ul.addEventListener('mousemove',eventHandler);	// mousemove
+
+// h5 = document.querySelector('h5');
+// h5.addEventListener('mousemove',eventOffSet)
+
+// function eventOffSet(e){
+	
+// 	//* offsetX & offsetY
+// 	h5.textContent=`X: ${e.offsetX} -  Y: ${e.offsetY}`
+// }
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 193 - KEYBOARD EVENTS
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801964#overview
+
