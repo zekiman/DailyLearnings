@@ -4251,6 +4251,319 @@
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 193 - KEYBOARD EVENTS
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801964#overview
+// //***** COURSE 193 - KEYBOARD EVENTS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801964#overview
+
+// input = document.querySelector('#txtTaskName');
+
+// function eventKB(e){
+//     //* event type
+//     console.log(`${e.type}`);       
+//     // print the event type
+    
+//     //* event target
+//     console.log(`${e.target.value}`)    
+//     // which item is targeted by the event
+//     // print the targeted item's value
+
+//     //* keyCode 
+//     console.log(`${e.keyCode}`);    
+//     // which key is pressed on keyboard
+
+//     // //* preventDefault();
+//     // e.preventDefault();
+// }
+
+// //---------------------------------------------
+
+// //* Keydown
+// input.addEventListener('keydown',eventKB)     // keydown
+
+// //* Keyup
+// input.addEventListener('keyup',eventKB)       // keyup
+
+// //* The keydown event is fired when a key is pressed.
+// //* The keyup event is fired when a key is released.
+
+// //---------------------------------------------
+
+// //* Keypress
+// //* Deprecated: This feature is no longer recommended. 
+
+// input.addEventListener('keypress',eventKB)     // keypress
+
+// //* The keypress event is fired when a key that produces a character value is pressed down.
+
+// //* The keydown and keyup events provide a code indicating which key is pressed, while keypress indicates which character was entered. For example, a lowercase "a" will be reported as 65 by keydown and keyup, but as 97 by keypress. An uppercase "A" is reported as 65 by all events.
+
+// //---------------------------------------------
+
+// //* Focus
+// input.addEventListener('focus',eventKB)     // focus
+
+// //* Blur
+// input.addEventListener('blur',eventKB)     // blur
+
+// //---------------------------------------------
+
+// //* Cut
+// input.addEventListener('cut',eventKB)     // cut
+
+// //* Paste
+// input.addEventListener('paste',eventKB)     // paste
+
+// //---------------------------------------------
+
+// //* Submit
+
+// form = document.querySelector('form');
+// form.addEventListener('submit',eventKB)
+
+// //---------------------------------------------
+
+// //* Select
+// input.addEventListener('select',eventKB)     // select
+
+// //---------------------------------------------
+
+// //* Change
+// input.addEventListener('change',eventKB)     // change
+
+// //---------------------------------------------
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 194 - EVENT BUBBLING & CAPTURING
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801966#overview
+
+// form = document.querySelector('form');
+// cardBody = form.parentElement;
+// card = cardBody.parentElement;
+// container = card.parentElement;
+
+// form.addEventListener('click',function(e){
+//     console.log(`form`)
+// })
+
+// cardBody.addEventListener('click',function(e){
+//     console.log(`card body`)
+// })
+
+// card.addEventListener('click',function(e){
+//     console.log(`card`)
+// })
+
+// container.addEventListener('click',function(e){
+//     console.log(`container`)
+// })
+
+// //* affected elements (respectively); Form (is clicked) > CardBody > Card > Container
+
+// //* In this case, when we click to input, all elements above will be triggered because of event bubbling
+
+// //* To prevent this,  only the clicked element is affected, we use the stopPropagation()
+
+// //---------------------------------------------
+
+// //* stopPropagation();
+// //* The stopPropagation() method of the Event interface prevents further propagation of the current event in the capturing and bubbling phases. It does not, however, prevent any default behaviors from occurring; for instance, clicks on links are still processed. If you want to stop those behaviors, see the preventDefault() method. It also does not prevent immediate propagation to other event-handlers. If you want to stop those, see stopImmediatePropagation().
+
+
+// form.addEventListener('click',function(e){
+//     console.log(`form`)
+//     e.stopPropagation();
+// })
+
+// cardBody.addEventListener('click',function(e){
+//     console.log(`card body`)
+//     e.stopPropagation();
+// })
+
+// card.addEventListener('click',function(e){
+//     console.log(`card`)
+//     e.stopPropagation();
+// })
+
+// container.addEventListener('click',function(e){
+//     console.log(`container`)
+//     e.stopPropagation();
+// })
+
+// //* affected elements (only clicked item); Only Container or only Card or Only CardBody or only Form
+
+// //---------------------------------------------
+
+// //* Event Capturring
+
+// //* Turkish Note: event bubblingde kapsayıcı bir elemana tıkladığımızda içten dışa doğru sırayla kapsanan tüm elemanlar etkileniyordu, Event Capturing'de ise dıştan içe doğru sırayla tüm elemanlar etkileniyor. Event Capturing için yapmamız gereken tek şey addEventListener'a 3. parametreyi (true) girmek. (Event type, function, true)
+
+// form.addEventListener('click',function(e){
+//     console.log(`form`)
+// },true)
+
+// cardBody.addEventListener('click',function(e){
+//     console.log(`card body`)
+// },true)
+
+// card.addEventListener('click',function(e){
+//     console.log(`card`)
+// },true)
+
+// container.addEventListener('click',function(e){
+//     console.log(`container`)
+// },true)
+
+// //* affected elements (respectively); Container > Card > CardBody > Form (is clicked)
+
+// //* in this case, when we use the stopPropagation() and clicked to form, only container will be affected. Or when clicked to container, only form will be affected
+
+// //---------------------------------------------
+
+// deleteItems = document.querySelectorAll('.fa-times');
+
+// deleteItems.forEach(function(item){
+//     item.addEventListener('click',function(e){
+//         console.log(e.target)
+//         e.preventDefault();
+//     })
+// })
+
+// //---------------------------------------------
+
+// ul = document.querySelector('ul');
+
+// ul.addEventListener('click',function(e){
+//     console.log(e.target);
+
+//     if(e.target.className == 'fas fa-times'){
+//         e.target.parentElement.parentElement.remove();
+//     }
+
+//     e.preventDefault();
+
+// })
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 195 - LOCAL STORAGE & SESSION STORAGE
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801968#overview
+//* https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector/Local_Storage_Session_Storage
+//* https://developer.mozilla.org/en-US/docs/Web/API/Storage
+
+//---------------------------------------------
+
+//* LOCAL STORAGE
+//* https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector
+//* https://developer.mozilla.org/en-US/docs/Web/API/Storage
+
+
+//* METHODS
+
+//* Storage.setItem()
+//* The setItem() method of the Storage interface, when passed a key name and value, will add that key to the given Storage object, or update that key's value if it already exists.
+
+var firstName = localStorage.setItem('firstName','Zekiman')
+// Storage {firstName: 'Zekiman', length: 1}
+
+var lastName = localStorage.setItem('lastName','Blackwolf');
+// Storage {lastName: 'Blackwolf', firstName: 'Zekiman', length: 2}
+
+//------------
+
+//* Storage.getItem()
+//* The getItem() method of the Storage interface, when passed a key name, will return that key's value, or null if the key does not exist, in the given Storage object.
+
+val = localStorage.getItem('firstName');    // Zekiman
+val = localStorage.getItem('lastName');     // Blackwolf
+
+//------------
+
+//* Storage.key()
+//* The key() method of the Storage interface, when passed a number n, returns the name of the nth key in a given Storage object. The order of keys is user-agent defined, so you should not rely on it.
+
+//------------
+
+//* Storage.removeItem()
+//* The removeItem() method of the Storage interface, when passed a key name, will remove that key from the given Storage object if it exists. The Storage interface of the Web Storage API provides access to a particular domain's session or local storage.
+
+//* If there is no item associated with the given key, this method will do nothing.
+
+localStorage.removeItem('firstName');
+// Storage {lastName: 'Blackwolf', length: 1}
+
+//------------
+
+//* Storage.clear()
+//* The clear() method of the Storage interface clears all keys stored in a given Storage object.
+
+localStorage.clear();
+// Storage {length: 0}
+
+//---------------------------------------------
+
+//* HOW TO ADD AN ARRAY TO LOCAL STORAGE;
+
+var hobbies = ['coding','football','running'];
+localStorage.setItem('hobbies',hobbies);
+// Storage {hobbies: 'coding,football,running', length: 1}
+
+//* We added but it seems like string, we need to make it an object. to changing we are using JSON.stringify() method. And to getting a value, we need to use JSON.parse() method
+
+//------------
+
+//* JSON.stringify()
+//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+
+//* The JSON.stringify() method converts a JavaScript object or value to a JSON string, optionally replacing values if a replacer function is specified or optionally including only the specified properties if a replacer array is specified.
+
+localStorage.setItem('hobbies',JSON.stringify(hobbies));
+// Storage {hobbies: '["coding","football","running"]', length: 1}
+
+//------------
+
+//* JSON.parse()
+//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+
+//* The JSON.parse() method parses a JSON string, constructing the JavaScript value or object described by the string. An optional reviver function can be provided to perform a transformation on the resulting object before it is returned.
+
+val = JSON.parse(localStorage.getItem('hobbies'))
+// (3) ['coding', 'football', 'running']
+
+console.log(localStorage);
+console.log(val)
+
+//---------------------------------------------
+
+//* SESSION STORAGE
+
+//* sessionStorage.setItem()
+var city = sessionStorage.setItem('city','Pensilvanya')
+// Storage {IsThisFirstTime_Log_From_LiveServer: 'true', city: 'Pensilvanya', length: 2}
+
+var country = sessionStorage.setItem('country','Amerikanya')
+// Storage {IsThisFirstTime_Log_From_LiveServer: 'true', city: 'Pensilvanya', country: 'Amerikanya', length: 3}
+
+//------------
+
+//* All methods of session storage are similar to local storage's methods
+//* sessionStorage.getItem()
+//* sessionStorage.key()
+//* sessionStorage.removeItem()
+//* sessionStorage.clear()
+
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 196 - EXERCISE - TO DO PROJECT (course project)
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801970#overview
+
+//* after the lecture, i will make my own to do project by myself
 
