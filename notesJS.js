@@ -4450,111 +4450,111 @@
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 195 - LOCAL STORAGE & SESSION STORAGE
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801968#overview
-//* https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector/Local_Storage_Session_Storage
-//* https://developer.mozilla.org/en-US/docs/Web/API/Storage
+// //***** COURSE 195 - LOCAL STORAGE & SESSION STORAGE
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801968#overview
+// //* https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector/Local_Storage_Session_Storage
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Storage
 
-//---------------------------------------------
+// //---------------------------------------------
 
-//* LOCAL STORAGE
-//* https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector
-//* https://developer.mozilla.org/en-US/docs/Web/API/Storage
+// //* LOCAL STORAGE
+// //* https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector
+// //* https://developer.mozilla.org/en-US/docs/Web/API/Storage
 
 
-//* METHODS
+// //* METHODS
 
-//* Storage.setItem()
-//* The setItem() method of the Storage interface, when passed a key name and value, will add that key to the given Storage object, or update that key's value if it already exists.
+// //* Storage.setItem()
+// //* The setItem() method of the Storage interface, when passed a key name and value, will add that key to the given Storage object, or update that key's value if it already exists.
 
-var firstName = localStorage.setItem('firstName','Zekiman')
-// Storage {firstName: 'Zekiman', length: 1}
+// var firstName = localStorage.setItem('firstName','Zekiman')
+// // Storage {firstName: 'Zekiman', length: 1}
 
-var lastName = localStorage.setItem('lastName','Blackwolf');
-// Storage {lastName: 'Blackwolf', firstName: 'Zekiman', length: 2}
+// var lastName = localStorage.setItem('lastName','Blackwolf');
+// // Storage {lastName: 'Blackwolf', firstName: 'Zekiman', length: 2}
 
-//------------
+// //------------
 
-//* Storage.getItem()
-//* The getItem() method of the Storage interface, when passed a key name, will return that key's value, or null if the key does not exist, in the given Storage object.
+// //* Storage.getItem()
+// //* The getItem() method of the Storage interface, when passed a key name, will return that key's value, or null if the key does not exist, in the given Storage object.
 
-val = localStorage.getItem('firstName');    // Zekiman
-val = localStorage.getItem('lastName');     // Blackwolf
+// val = localStorage.getItem('firstName');    // Zekiman
+// val = localStorage.getItem('lastName');     // Blackwolf
 
-//------------
+// //------------
 
-//* Storage.key()
-//* The key() method of the Storage interface, when passed a number n, returns the name of the nth key in a given Storage object. The order of keys is user-agent defined, so you should not rely on it.
+// //* Storage.key()
+// //* The key() method of the Storage interface, when passed a number n, returns the name of the nth key in a given Storage object. The order of keys is user-agent defined, so you should not rely on it.
 
-//------------
+// //------------
 
-//* Storage.removeItem()
-//* The removeItem() method of the Storage interface, when passed a key name, will remove that key from the given Storage object if it exists. The Storage interface of the Web Storage API provides access to a particular domain's session or local storage.
+// //* Storage.removeItem()
+// //* The removeItem() method of the Storage interface, when passed a key name, will remove that key from the given Storage object if it exists. The Storage interface of the Web Storage API provides access to a particular domain's session or local storage.
 
-//* If there is no item associated with the given key, this method will do nothing.
+// //* If there is no item associated with the given key, this method will do nothing.
 
-localStorage.removeItem('firstName');
-// Storage {lastName: 'Blackwolf', length: 1}
+// localStorage.removeItem('firstName');
+// // Storage {lastName: 'Blackwolf', length: 1}
 
-//------------
+// //------------
 
-//* Storage.clear()
-//* The clear() method of the Storage interface clears all keys stored in a given Storage object.
+// //* Storage.clear()
+// //* The clear() method of the Storage interface clears all keys stored in a given Storage object.
 
-localStorage.clear();
-// Storage {length: 0}
+// localStorage.clear();
+// // Storage {length: 0}
 
-//---------------------------------------------
+// //---------------------------------------------
 
-//* HOW TO ADD AN ARRAY TO LOCAL STORAGE;
+// //* HOW TO ADD AN ARRAY TO LOCAL STORAGE;
 
-var hobbies = ['coding','football','running'];
-localStorage.setItem('hobbies',hobbies);
-// Storage {hobbies: 'coding,football,running', length: 1}
+// var hobbies = ['coding','football','running'];
+// localStorage.setItem('hobbies',hobbies);
+// // Storage {hobbies: 'coding,football,running', length: 1}
 
-//* We added but it seems like string, we need to make it an object. to changing we are using JSON.stringify() method. And to getting a value, we need to use JSON.parse() method
+// //* We added but it seems like string, we need to make it an object. to changing we are using JSON.stringify() method. And to getting a value, we need to use JSON.parse() method
 
-//------------
+// //------------
 
-//* JSON.stringify()
-//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+// //* JSON.stringify()
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 
-//* The JSON.stringify() method converts a JavaScript object or value to a JSON string, optionally replacing values if a replacer function is specified or optionally including only the specified properties if a replacer array is specified.
+// //* The JSON.stringify() method converts a JavaScript object or value to a JSON string, optionally replacing values if a replacer function is specified or optionally including only the specified properties if a replacer array is specified.
 
-localStorage.setItem('hobbies',JSON.stringify(hobbies));
-// Storage {hobbies: '["coding","football","running"]', length: 1}
+// localStorage.setItem('hobbies',JSON.stringify(hobbies));
+// // Storage {hobbies: '["coding","football","running"]', length: 1}
 
-//------------
+// //------------
 
-//* JSON.parse()
-//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+// //* JSON.parse()
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
 
-//* The JSON.parse() method parses a JSON string, constructing the JavaScript value or object described by the string. An optional reviver function can be provided to perform a transformation on the resulting object before it is returned.
+// //* The JSON.parse() method parses a JSON string, constructing the JavaScript value or object described by the string. An optional reviver function can be provided to perform a transformation on the resulting object before it is returned.
 
-val = JSON.parse(localStorage.getItem('hobbies'))
-// (3) ['coding', 'football', 'running']
+// val = JSON.parse(localStorage.getItem('hobbies'))
+// // (3) ['coding', 'football', 'running']
 
-console.log(localStorage);
-console.log(val)
+// console.log(localStorage);
+// console.log(val)
 
-//---------------------------------------------
+// //---------------------------------------------
 
-//* SESSION STORAGE
+// //* SESSION STORAGE
 
-//* sessionStorage.setItem()
-var city = sessionStorage.setItem('city','Pensilvanya')
-// Storage {IsThisFirstTime_Log_From_LiveServer: 'true', city: 'Pensilvanya', length: 2}
+// //* sessionStorage.setItem()
+// var city = sessionStorage.setItem('city','Pensilvanya')
+// // Storage {IsThisFirstTime_Log_From_LiveServer: 'true', city: 'Pensilvanya', length: 2}
 
-var country = sessionStorage.setItem('country','Amerikanya')
-// Storage {IsThisFirstTime_Log_From_LiveServer: 'true', city: 'Pensilvanya', country: 'Amerikanya', length: 3}
+// var country = sessionStorage.setItem('country','Amerikanya')
+// // Storage {IsThisFirstTime_Log_From_LiveServer: 'true', city: 'Pensilvanya', country: 'Amerikanya', length: 3}
 
-//------------
+// //------------
 
-//* All methods of session storage are similar to local storage's methods
-//* sessionStorage.getItem()
-//* sessionStorage.key()
-//* sessionStorage.removeItem()
-//* sessionStorage.clear()
+// //* All methods of session storage are similar to local storage's methods
+// //* sessionStorage.getItem()
+// //* sessionStorage.key()
+// //* sessionStorage.removeItem()
+// //* sessionStorage.clear()
 
 
 
@@ -4567,3 +4567,62 @@ var country = sessionStorage.setItem('country','Amerikanya')
 
 //* after the lecture, i will make my own to do project by myself
 
+form = document.querySelector('form');
+input = document.querySelector('#txtTaskName');
+btnDeleteAll = document.querySelector('#btnDeleteAll');
+taskList = document.querySelector('#task-list')
+
+//* Call EventListeners
+eventListeners();
+
+function eventListeners(){
+
+    //* SUBMIT EVENT (ADDING TASK)
+    form.addEventListener('submit',addNewItem)
+
+    //* DELETING EVENT
+    
+
+}
+
+//* ADDING NEW ITEM
+function addNewItem(e) {
+    e.preventDefault();
+    console.log(input.value)
+    if (input.value == '') {
+        alert('Please type a task firstly.')
+    } else {
+
+        //* creating li
+        li = document.createElement('li');
+        li.className = 'list-group-item list-group-item-secondary'
+        
+        //* first way to adding text content to li
+        // li.textContent = input.value
+
+        //* second way to adding text to li
+        li.appendChild(document.createTextNode(input.value))
+
+        //* creating a
+        a = document.createElement('a');
+        a.classList = 'delete-item float-right';
+        a.setAttribute('href', '#');
+
+        //* first way to adding the i element to a element
+        // i = document.createElement('i');
+        // i.classList='fas fa-times';
+        // a.appendChild(i)
+
+        //* second way to adding the i element to a element
+        a.innerHTML = '<i class="fas fa-times"></i>'
+
+        //* appending
+        li.appendChild(a)
+        taskList.appendChild(li)
+
+        //* clear input after adding
+        input.value=''
+
+        console.log(li)
+    }
+}
