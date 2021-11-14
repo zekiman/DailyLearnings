@@ -1703,16 +1703,16 @@
 // function getFee(isMember) {
 //     return (isMember ? '$2.00' : '$10.00');
 //   }
-  
+
 //   console.log(getFee(true));
 //   // expected output: "$2.00"
-  
+
 //   console.log(getFee(false));
 //   // expected output: "$10.00"
-  
+
 //   console.log(getFee(null));
 //   // expected output: "$10.00"
-  
+
 // //---------------------------------------------
 
 
@@ -2187,7 +2187,7 @@
 //     default:
 //       console.log('Sorry, we are out of ' + expr + '.');
 //   }
-  
+
 //   console.log("Is there anything else you'd like?");
 
 //   //---------------------------------------------
@@ -2299,11 +2299,11 @@
 //     case (age>0 && age<13):
 //         console.log(`${firstName} is a child.`)
 //         break;
-    
+
 //     case (age>12 && age< 19):
 //         console.log(`${firstName} is a teenager.`)
 //         break;
-    
+
 //     case (age>18):
 //         console.log(`${firstName} is an adult.`)
 //         break;
@@ -2611,13 +2611,13 @@
 // //* It interrupts the loop. e.g.
 
 // for(let i=0; i<10; i++){
-    
+
 //     console.log(`${i} is a number.`)
-    
+
 //     if(i===7){
 //         break;
 //     }
-    
+
 // }
 
 // // 7 number was passed by loop. result; 
@@ -2693,7 +2693,7 @@
 //  }while(i===10)
 
 //  // result: 1
- 
+
 //  //* This statement will print only '1' because of 'while' returns false
 
 //  //* if while would be (i<10); loop would continue untill the statement is false.
@@ -2714,7 +2714,7 @@
 //  // 8
 //  // 9
 //  // 10
- 
+
 // //---------------------------------------------
 
 // sum=0;
@@ -2859,53 +2859,108 @@
 // //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/7677660#overview
 // //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration
 
-
 // //* Generate a random number between 1-10
 // //* Help them to find the number by giving tip like up and down
 // //* Give them score
 // //* Let user can say how many times they can guess
 
-// number = Math.floor(Math.random()*10)+1
+// number = Math.floor(Math.random() * 10) + 1
 // // console.log(number)
 
-// claim = prompt('How many guess do you think you can find it?')
-// howManyTimes = 0;
-// predictor();
-// window.value = ''
-// score = 0;
 
-// function predictor() {
-//     howManyTimes++;
-//     // console.log(`TEST - howManyTimes: ${howManyTimes}`)
-//     window.value = prompt('Guess the number!')
-//     // console.log(`TEST - value: ${value}`);
-//     checker();
-// }
+// //* FIRST WAY >>>> (FUNCTIONAL) >>>>
 
-// function controlChance() {
-//     if (howManyTimes >= claim) {
-//         console.log(`Game over! \n You tried ${claim} times.`)
-//     } else {
-//         predictor();
+// // claim = prompt('How many guess do you think you can find it?')
+// // howManyTimes = 0;
+// // predictor();
+// // window.value = ''
+// // score = 0;
+
+// // function predictor() {
+// //     howManyTimes++;
+// //     // console.log(`TEST - howManyTimes: ${howManyTimes}`)
+// //     window.value = prompt('Guess the number!')
+// //     // console.log(`TEST - value: ${value}`);
+// //     checker();
+// // }
+
+// // function controlChance() {
+// //     if (howManyTimes >= claim) {
+// //         console.log(`Game over! \n You tried ${claim} times. \n Correct answer was ${number}.`)
+// //     } else {
+// //         predictor();
+// //     }
+// // }
+
+// // function scoreCalculator() {
+// //     score = Math.round((100 / claim) * (claim - (howManyTimes - 1)))
+// //     return score
+// // }
+
+// // function checker() {
+// //     if (value == number) {
+// //         return console.log(`Congratz!!! \n You found it in ${howManyTimes} times. \n YOUR SCORE: ${scoreCalculator()}`)
+// //     } else if (value < number) {
+// //         console.log(`You should try the numbers HIGHER than ${value}. \n Remaining chance: ${claim-howManyTimes}. `)
+// //         controlChance()
+// //     } else if (value > number) {
+// //         console.log(`You should try the numbers LOWER than ${value}  \n Remaining chance: ${claim-howManyTimes}. `);
+// //         controlChance()
+// //     }
+// // }
+
+
+// //* SECOND WAY >>>> (WHILE LOOP) >>>>
+
+// number = Math.floor(Math.random() * 10) + 1
+// console.log(number)
+
+// totalChance = prompt('How many chance do you want to find the number?');
+// howManyGuess = 0;
+// remainingChance = totalChance;
+// console.log(`TEST - totalchance: ${totalChance} & howManyGuess ${howManyGuess} `)
+
+// while (howManyGuess <= totalChance) {
+//     // ask the guess
+//     guessedNumber = prompt(`Enter your guess`);
+
+//     // increase number of guess
+//     howManyGuess++;
+
+//     // decrease number of remaining chance
+//     remainingChance--;
+
+//     //check
+//     // > if correct
+//     if (guessedNumber == number) {
+//         // calculate the score
+//         let scoreCalculation = (100 / totalChance) * (remainingChance + 1)
+
+//         // congratulate
+//         console.log(`Congratz! \n You found the number in ${howManyGuess} times! \n Your score is ${scoreCalculation}`)
+
+//         // finish the loop
+//         break;
+//     }
+//     // if false - low 
+//     if (guessedNumber < number) {
+//         console.log(`Try the HIGHER than ${guessedNumber} \n Remaining chance: ${remainingChance}`)
+//     }
+
+//     // if false - high
+//     if (guessedNumber > number) {
+//         console.log(`Try the LOWER than ${guessedNumber} \n Remaining chance: ${remainingChance}`)
+//     }
+
+//     // if finish the chance
+//     if (remainingChance <= 0) {
+//         console.log(`GAME OVER! \n You couldn't find in ${howManyGuess} times. \n Correct answer was ${number}`)
+
+//         // finish the loop
+//         break;
 //     }
 // }
 
-// function scoreCalculator() {
-//     score = Math.round((100 / claim) * (claim - (howManyTimes - 1)))
-//     return score
-// }
-
-// function checker() {
-//     if (value == number) {
-//         return console.log(`Congratz!!! \n You found it in ${howManyTimes} times. \n YOUR SCORE: ${scoreCalculator()}`)
-//     } else if (value < number) {
-//         console.log(`You should try the numbers HIGHER than ${value}. \n Remaining chance: ${claim-howManyTimes}. `)
-//         controlChance()
-//     } else if (value > number) {
-//         console.log(`You should try the numbers LOWER than ${value}. \n Remaining chance: ${claim-howManyTimes}. `);
-//         controlChance()
-//     }
-// }
 
 
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
@@ -2953,7 +3008,7 @@
 // function remainingYear(birthYear, name){
 //     age = ageCalculator(birthYear);
 //     retired = 65-age;
-    
+
 //     if(retired>0){
 //         console.log(`${name}, remaining years for retiring: ${retired}.`)
 //     }else if(age===NaN || age==undefined){
@@ -3002,7 +3057,7 @@
 //     //* First way to define default parameters
 //     if(typeof a === 'undefined'){ a=0 }
 //     if(typeof b === 'undefined'){ b=0 }
-    
+
 //     c = a+b;
 //     return c;
 // }
@@ -3069,21 +3124,21 @@
 
 // function withdraw() {
 //     withdrawal = prompt(`Please enter amount do you want withdraw!`);
-    
+
 //     if (withdrawal <= allBalance) {
 //         if (withdrawal <= mainAccountBalance) {
 //             console.log(`You have withdrawal ${withdrawal}. \nRemaining balance: ${mainAccountBalance-withdrawal}`);
 //             againProcess();
 //         }else {
 //             console.log(`You don't have enough main balance.`);
-    
+
 //             confirm(`Would you like to withdrawal also from additional account?`) ?
 //                 console.log(`You have withdrawal ${withdrawal} from your main and additional accounts. 
 //                 \nRemaining balances: 
 //                 \nMain Account: 0 
 //                 \nAdditional Account: ${mainAccountBalance-withdrawal+additionalBalance}`) :
 //                 againProcess();
-            
+
 //             againProcess();
 //         }
 //     } else {
@@ -3658,7 +3713,7 @@
 // // 						<i class="fas fa-times"></i>
 // // 					</a>
 // // 				</li>
-			
+
 // // 			</ul>
 
 // //* Differences between NodeList and HTMLCollection
@@ -3686,10 +3741,10 @@
 
 // //*  Node.ATTRIBUTE_NODE (2)
 // //*  An Attribute of an Element.
-   
+
 // //*  Node.TEXT_NODE (3)
 // //*  The actual Text inside an Element or Attr.
- 
+
 // //*  Node.CDATA_SECTION_NODE(4)
 // //*  A CDATASection, such as <!CDATA[[ … ]]>
 
@@ -3966,8 +4021,8 @@
 // 						<i class="fas fa-times"></i>
 // 					</a>
 // 				</li>
-				
-			
+
+
 // 			</ul>  */
 
 // //---------------------------------------------
@@ -4242,7 +4297,7 @@
 // h5.addEventListener('mousemove',eventOffSet)
 
 // function eventOffSet(e){
-	
+
 // 	//* offsetX & offsetY
 // 	h5.textContent=`X: ${e.offsetX} -  Y: ${e.offsetY}`
 // }
@@ -4260,7 +4315,7 @@
 //     //* event type
 //     console.log(`${e.type}`);       
 //     // print the event type
-    
+
 //     //* event target
 //     console.log(`${e.target.value}`)    
 //     // which item is targeted by the event
@@ -4572,16 +4627,20 @@ input = document.querySelector('#txtTaskName');
 btnDeleteAll = document.querySelector('#btnDeleteAll');
 taskList = document.querySelector('#task-list')
 
+
 //* Call EventListeners
 eventListeners();
 
-function eventListeners(){
+function eventListeners() {
 
     //* SUBMIT EVENT (ADDING TASK)
-    form.addEventListener('submit',addNewItem)
+    form.addEventListener('submit', addNewItem)
 
     //* DELETING EVENT
-    
+    taskList.addEventListener('click', deleteItem)
+
+    //* DELETING ALL ITEMS
+    btnDeleteAll.addEventListener('click', deleteAllItems)
 
 }
 
@@ -4596,7 +4655,7 @@ function addNewItem(e) {
         //* creating li
         li = document.createElement('li');
         li.className = 'list-group-item list-group-item-secondary'
-        
+
         //* first way to adding text content to li
         // li.textContent = input.value
 
@@ -4621,8 +4680,42 @@ function addNewItem(e) {
         taskList.appendChild(li)
 
         //* clear input after adding
-        input.value=''
+        input.value = ''
 
         console.log(li)
     }
+}
+
+//* DELETING ITEM
+
+function deleteItem(e) {
+    if (e.target.className == "fas fa-times") {
+        console.log('delete button is clicked');
+        if (e.target.parentElement.parentElement.className = 'list-group-item') {
+            e.target.parentElement.parentElement.remove()
+        }
+        e.preventDefault();
+    };
+}
+
+
+//* DELETING ALL ITEMS
+function deleteAllItems(e) {
+
+    if (confirm('Are you sure?')) {
+        //* First way to deleting all items
+        taskList.innerHTML = '';
+
+        // //* second way
+        // taskList.childNodes.forEach(function(item){
+
+        //     if(item.nodeType===1){
+        //         console.log(item);
+        //         item.remove();
+
+        //     }
+        // })
+    }
+
+    e.preventDefault();
 }
