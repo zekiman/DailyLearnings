@@ -4810,73 +4810,61 @@
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 218 - 219 - OBJECTS & FUNCTIONS & CONSTRUCTOR (OBJECT ORIENTED PROGRAMMING)
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802002#overview
+// //***** COURSE 218 - 219 - OBJECTS & FUNCTIONS & CONSTRUCTOR (OBJECT ORIENTED PROGRAMMING)
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802002#overview
 
 
-//---------------------------------------------
+// //---------------------------------------------
 
-//* ------- PRIMITIVES
-//* - Number
-//* - String
-//* - Boolean
-//* - Undefined
-//* - Null
+// //* ------- PRIMITIVES
+// //* - Number
+// //* - String
+// //* - Boolean
+// //* - Undefined
+// //* - Null
 
-//* ------- Everything else
-//* - Arrays
-//* - Functions
-//* - Objects
-//* - Dates
-//* - String & Number Object
+// //* ------- Everything else
+// //* - Arrays
+// //* - Functions
+// //* - Objects
+// //* - Dates
+// //* - String & Number Object
 
 
-//* Turkish notes:
-//* Primitive Tipler sadece tek bir değer tutar, değer tutma haricinde ekstra özellik getirmez.
+// //* Turkish notes:
+// //* Primitive Tipler sadece tek bir değer tutar, değer tutma haricinde ekstra özellik getirmez.
 
-//---------------------------------------------
+// //---------------------------------------------
 
-num = 10;
+// num = 10;
 
-object = {
-    name: 'zekiman',
-    birthYear: 1944,
-    job: 'maraba'
-}
+// object = {
+//     name: 'zekiman',
+//     birthYear: 1944,
+//     job: 'maraba'
+// }
 
-array = ['hi','everyone']
+// array = ['hi','everyone']
 
-console.log(num);       // 10 (it prints just value of 10)
-console.log(object);    // it brings proto besides value
-console.log(array);     // it has some methods besides proto because of being an array
+// console.log(num);       // 10 (it prints just value of 10)
+// console.log(object);    // it brings proto besides value
+// console.log(array);     // it has some methods besides proto because of being an array
 
-// note: length property can be using only on an array
+// // note: length property can be using only on an array
 
-//---------------------------------------------
+// //---------------------------------------------
 
-//* Object Literals
-//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#object_literals
+// //* Object Literals
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#object_literals
 
-//* Constructors > Instances
-//* We will generate instances from constructors
+// //* Constructors > Instances
+// //* We will generate instances from constructors
 
-//---------------------------------------------
+// //---------------------------------------------
 
-//* Function Constuctors
+// //* Function Constuctors
 
-function Person(name,birthYear,job){
-    this.name = name;
-    this.birthYear = birthYear;
-    this.job = job;
-    this.calculateAge = function() {
-        return new Date().getFullYear()-this.birthYear
-    }
-
-    console.log(this)
-}
-
-//* same statement above, typed differently 
-// Person = function(name,birthYear,job){
+// function Person(name,birthYear,job){
 //     this.name = name;
 //     this.birthYear = birthYear;
 //     this.job = job;
@@ -4887,20 +4875,32 @@ function Person(name,birthYear,job){
 //     console.log(this)
 // }
 
+// //* same statement above, typed differently 
+// // Person = function(name,birthYear,job){
+// //     this.name = name;
+// //     this.birthYear = birthYear;
+// //     this.job = job;
+// //     this.calculateAge = function() {
+// //         return new Date().getFullYear()-this.birthYear
+// //     }
 
-zekiman = new Person('zekiman',1994,'maraba')
-// Person {name: 'zekiman', birthYear: 1994, job: 'maraba'}
-
-kubrawoman = new Person('kubrawoman',1994,'maraba müdüresi')
-// Person {name: 'kubrawoman', birthYear: 1994, job: 'maraba müdüresi'}
+// //     console.log(this)
+// // }
 
 
-console.log(zekiman.name)                   //  zekiman
-console.log(zekiman.job)                    //  maraba
-console.log(kubrawoman.birthYear)           //  1994
-console.log(kubrawoman.calculateAge())      //  27
+// zekiman = new Person('zekiman',1994,'maraba')
+// // Person {name: 'zekiman', birthYear: 1994, job: 'maraba'}
 
-//---------------------------------------------
+// kubrawoman = new Person('kubrawoman',1994,'maraba müdüresi')
+// // Person {name: 'kubrawoman', birthYear: 1994, job: 'maraba müdüresi'}
+
+
+// console.log(zekiman.name)                   //  zekiman
+// console.log(zekiman.job)                    //  maraba
+// console.log(kubrawoman.birthYear)           //  1994
+// console.log(kubrawoman.calculateAge())      //  27
+
+// //---------------------------------------------
 
 
 
@@ -4908,8 +4908,164 @@ console.log(kubrawoman.calculateAge())      //  27
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 220 - PROTOTYPE
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802006#content
-//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+// //***** COURSE 220 - PROTOTYPE
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802006#content
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
+// let Person = function(name,birthYear,job){
+//     this.name = name;
+//     this.birthYear = birthYear;
+//     this.job = job;
+//     // this.calculateAge = function(){
+//     //     return new Date().getFullYear()-this.birthYear;
+//     // }
+// }
+
+// zekiman = new Person('Zekiman',1994,'maraba manager');
+
+// console.log(zekiman)
+// //  Person {name: 'Zekiman', birthYear: 1994, job: 'maraba manager', //   calculateAge: ƒ}
+// //  birthYear: 1994
+// //  calculateAge: ƒ ()
+// //  job: "maraba manager"
+// //  name: "Zekiman"
+// //  [[Prototype]]: Object
+
+// //---------------------------------------------
+
+// //* calculateAge function is deleted from constructor,
+// //* and the function property is sent by prototype
+
+// Person.prototype.calculateAge = function(){
+//     return new Date().getFullYear() - this.birthYear
+// }
+
+// console.log(zekiman);
+// //  Person {name: 'Zekiman', birthYear: 1994, job: 'maraba manager'}
+// //  birthYear: 1994
+// //  job: "maraba manager"
+// //  name: "Zekiman"
+// //  [[Prototype]]: Object
+// //  calculateAge: ƒ ()
+// //  constructor: ƒ (name,birthYear,job)
+// //  [[Prototype]]: Object
+
+// //---------------------------------------------
+
+// Person.prototype.getName = function(){
+//     return this.name
+// }
+
+// console.log(zekiman.getName()); // Zekiman
+
+// //---------------------------------------------
+
+// //* hasOwnProperty()
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
+
+// //* The hasOwnProperty() method returns a boolean indicating whether the object has the specified property as its own property (as opposed to inheriting it).
+
+// console.log(zekiman.hasOwnProperty('name'))     // true
+// console.log(zekiman.hasOwnProperty())           // false
+
+// Person.prototype.lastname = 'Blackwolf'
+// console.log(zekiman.hasOwnProperty('lastname')) // false
+
+// //---------------------------------------------
+
+// zekiman = new Person('Zekiman',1994,'maraba manager');
+// kubrawoman = new Person ('Kubrawoman', 1993,'maraba müdüresi');
+
+// //* we didnot send the lastname value as variable for new person to prototype of constructor. so lastname value of each instance seems to fixed value ('Blackwolf)
+
+// console.log(zekiman.lastname);      // Blackwolf
+// console.log(kubrawoman.lastname);   // Blackwolf
+
+// //* When we set the lastname as a function which return variable for each instance by this way... (at the next lecture)
+
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 221 - EXERCISE : CONSTRUCTOR & PROTOTYPE
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802008#overview
+
+
+//* Create an Employee constructor which get value of salary and name from outside
+
+//* Create a function which calculating the earned total salary and tax until the current month in this year
+
+//* ---> Tax:
+//* -------->Until 20.000₺ earnings: %20 
+//* -------->Until 30.000₺ earnings: %25 
+//* -------->More than 30.000₺ earnings: %27 
+
+//---------------------------------------------
+
+function Employee(name,salary){
+    this.name = name;
+    this.salary = salary;
+}
+
+emp1 = new Employee('John', 3000);
+console.log(emp1)   // Employee {name: 'John', salary: 3000}
+
+//* If we would forget to put 'new' keyword before constructor name, it will return undefined;
+
+emp2 = Employee('Rihanna',2000)
+console.log(emp2) //******* undefined
+
+
+//* To prevent this issue, we can use this statement in the function;
+
+function Employee(name,salary){
+
+    if(!(this instanceof Employee)){
+        return new Employee(name,salary)
+    }
+    this.name = name;
+    this.salary = salary;
+}
+
+emp2 = Employee('Rihanna',2000)
+console.log(emp2)   
+//******* Employee {name: 'Rihanna', salary: 2000}
+
+//---------------------------------------------
+
+zekiman = new Employee('Zekiman',3500);
+
+Employee.prototype.calcEarnings = function(){
+    currentMonth = new Date().getMonth()+1;
+    totalSalary = currentMonth*this.salary;
+    tax = 0;
+
+    if(totalSalary<=20000){
+        tax = totalSalary*0.2;
+    }else if(totalSalary>20000 && totalSalary<=30000){
+        tax = totalSalary*0.25;
+    }else{
+        tax = totalSalary*0.27
+    }
+
+    return console.log(`The employee earned ${totalSalary}₺ until this month and ${tax}₺ is paid for tax.`)
+}
+
+console.log(zekiman);
+//      Employee {name: 'Zekiman', salary: 3500}
+//      name: "Zekiman"
+//      salary: 3500
+//      [[Prototype]]: Object
+//      calcEarnings: ƒ ()
+//      constructor: ƒ Employee(name,salary)
+//      [[Prototype]]: Object
+
+
+zekiman.calcEarnings();
+//  The employee earned 38500₺ until this month and 10395₺ is paid for tax.
+
+
+//---------------------------------------------
 
