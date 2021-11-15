@@ -4803,3 +4803,113 @@
 //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17801980#overview
 
 //* after the lecture, i will make my own to do project by myself
+
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 218 - 219 - OBJECTS & FUNCTIONS & CONSTRUCTOR (OBJECT ORIENTED PROGRAMMING)
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802002#overview
+
+
+//---------------------------------------------
+
+//* ------- PRIMITIVES
+//* - Number
+//* - String
+//* - Boolean
+//* - Undefined
+//* - Null
+
+//* ------- Everything else
+//* - Arrays
+//* - Functions
+//* - Objects
+//* - Dates
+//* - String & Number Object
+
+
+//* Turkish notes:
+//* Primitive Tipler sadece tek bir değer tutar, değer tutma haricinde ekstra özellik getirmez.
+
+//---------------------------------------------
+
+num = 10;
+
+object = {
+    name: 'zekiman',
+    birthYear: 1944,
+    job: 'maraba'
+}
+
+array = ['hi','everyone']
+
+console.log(num);       // 10 (it prints just value of 10)
+console.log(object);    // it brings proto besides value
+console.log(array);     // it has some methods besides proto because of being an array
+
+// note: length property can be using only on an array
+
+//---------------------------------------------
+
+//* Object Literals
+//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#object_literals
+
+//* Constructors > Instances
+//* We will generate instances from constructors
+
+//---------------------------------------------
+
+//* Function Constuctors
+
+function Person(name,birthYear,job){
+    this.name = name;
+    this.birthYear = birthYear;
+    this.job = job;
+    this.calculateAge = function() {
+        return new Date().getFullYear()-this.birthYear
+    }
+
+    console.log(this)
+}
+
+//* same statement above, typed differently 
+// Person = function(name,birthYear,job){
+//     this.name = name;
+//     this.birthYear = birthYear;
+//     this.job = job;
+//     this.calculateAge = function() {
+//         return new Date().getFullYear()-this.birthYear
+//     }
+
+//     console.log(this)
+// }
+
+
+zekiman = new Person('zekiman',1994,'maraba')
+// Person {name: 'zekiman', birthYear: 1994, job: 'maraba'}
+
+kubrawoman = new Person('kubrawoman',1994,'maraba müdüresi')
+// Person {name: 'kubrawoman', birthYear: 1994, job: 'maraba müdüresi'}
+
+
+console.log(zekiman.name)                   //  zekiman
+console.log(zekiman.job)                    //  maraba
+console.log(kubrawoman.birthYear)           //  1994
+console.log(kubrawoman.calculateAge())      //  27
+
+//---------------------------------------------
+
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 220 - PROTOTYPE
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802006#content
+//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
+
