@@ -4981,7 +4981,7 @@
 // console.log(zekiman.lastname);      // Blackwolf
 // console.log(kubrawoman.lastname);   // Blackwolf
 
-// //* When we set the lastname as a function which return variable for each instance by this way... (at the next lecture)
+// //* When we set the lastname as a function which return variable for each instance by this way... (at the next lectures)
 
 
 
@@ -4989,83 +4989,275 @@
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 221 - EXERCISE : CONSTRUCTOR & PROTOTYPE
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802008#overview
+// //***** COURSE 221 - EXERCISE : CONSTRUCTOR & PROTOTYPE
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802008#overview
 
 
-//* Create an Employee constructor which get value of salary and name from outside
+// //* Create an Employee constructor which get value of salary and name from outside
 
-//* Create a function which calculating the earned total salary and tax until the current month in this year
+// //* Create a function which calculating the earned total salary and tax until the current month in this year
 
-//* ---> Tax:
-//* -------->Until 20.000₺ earnings: %20 
-//* -------->Until 30.000₺ earnings: %25 
-//* -------->More than 30.000₺ earnings: %27 
+// //* ---> Tax:
+// //* -------->Until 20.000₺ earnings: %20 
+// //* -------->Until 30.000₺ earnings: %25 
+// //* -------->More than 30.000₺ earnings: %27 
 
-//---------------------------------------------
+// //---------------------------------------------
 
-function Employee(name,salary){
-    this.name = name;
-    this.salary = salary;
-}
+// function Employee(name,salary){
+//     this.name = name;
+//     this.salary = salary;
+// }
 
-emp1 = new Employee('John', 3000);
-console.log(emp1)   // Employee {name: 'John', salary: 3000}
+// emp1 = new Employee('John', 3000);
+// console.log(emp1)   // Employee {name: 'John', salary: 3000}
 
-//* If we would forget to put 'new' keyword before constructor name, it will return undefined;
+// //* If we would forget to put 'new' keyword before constructor name, it will return undefined;
 
-emp2 = Employee('Rihanna',2000)
-console.log(emp2) //******* undefined
-
-
-//* To prevent this issue, we can use this statement in the function;
-
-function Employee(name,salary){
-
-    if(!(this instanceof Employee)){
-        return new Employee(name,salary)
-    }
-    this.name = name;
-    this.salary = salary;
-}
-
-emp2 = Employee('Rihanna',2000)
-console.log(emp2)   
-//******* Employee {name: 'Rihanna', salary: 2000}
-
-//---------------------------------------------
-
-zekiman = new Employee('Zekiman',3500);
-
-Employee.prototype.calcEarnings = function(){
-    currentMonth = new Date().getMonth()+1;
-    totalSalary = currentMonth*this.salary;
-    tax = 0;
-
-    if(totalSalary<=20000){
-        tax = totalSalary*0.2;
-    }else if(totalSalary>20000 && totalSalary<=30000){
-        tax = totalSalary*0.25;
-    }else{
-        tax = totalSalary*0.27
-    }
-
-    return console.log(`The employee earned ${totalSalary}₺ until this month and ${tax}₺ is paid for tax.`)
-}
-
-console.log(zekiman);
-//      Employee {name: 'Zekiman', salary: 3500}
-//      name: "Zekiman"
-//      salary: 3500
-//      [[Prototype]]: Object
-//      calcEarnings: ƒ ()
-//      constructor: ƒ Employee(name,salary)
-//      [[Prototype]]: Object
+// emp2 = Employee('Rihanna',2000)
+// console.log(emp2) //******* undefined
 
 
-zekiman.calcEarnings();
-//  The employee earned 38500₺ until this month and 10395₺ is paid for tax.
+// //* To prevent this issue, we can use this statement in the function;
+
+// function Employee(name,salary){
+
+//     if(!(this instanceof Employee)){
+//         return new Employee(name,salary)
+//     }
+//     this.name = name;
+//     this.salary = salary;
+// }
+
+// emp2 = Employee('Rihanna',2000)
+// console.log(emp2)   
+// //******* Employee {name: 'Rihanna', salary: 2000}
+
+// //---------------------------------------------
+
+// zekiman = new Employee('Zekiman',3500);
+
+// Employee.prototype.calcEarnings = function(){
+//     currentMonth = new Date().getMonth()+1;
+//     totalSalary = currentMonth*this.salary;
+//     tax = 0;
+
+//     if(totalSalary<=20000){
+//         tax = totalSalary*0.2;
+//     }else if(totalSalary>20000 && totalSalary<=30000){
+//         tax = totalSalary*0.25;
+//     }else{
+//         tax = totalSalary*0.27
+//     }
+
+//     return console.log(`The employee earned ${totalSalary}₺ until this month and ${tax}₺ is paid for tax.`)
+// }
+
+// console.log(zekiman);
+// //      Employee {name: 'Zekiman', salary: 3500}
+// //      name: "Zekiman"
+// //      salary: 3500
+// //      [[Prototype]]: Object
+// //      calcEarnings: ƒ ()
+// //      constructor: ƒ Employee(name,salary)
+// //      [[Prototype]]: Object
 
 
-//---------------------------------------------
+// zekiman.calcEarnings();
+// //  The employee earned 38500₺ until this month and 10395₺ is paid for tax.
+
+
+// //---------------------------------------------
+
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 222 - OBJECT.CREATE
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802010#overview
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+
+
+// //* Object.create()
+// //* The Object.create() method creates a new object, using an existing object as the prototype of the newly created object.
+
+// personProto = {
+//     calculateAge : function(){
+//         return new Date().getFullYear()-this.birthYear;
+//     }
+// }
+
+// console.log(personProto)
+// //  Object
+// //  calculateAge: ƒ ()
+
+// //-------
+
+// zekiman = Object.create(personProto);
+
+// console.log(zekiman)
+// //  {}
+// //  [[Prototype]]: Object
+// //  calculateAge: ƒ ()
+
+
+// //* Turkish note: Bu şekilde var olan bir objenin özelliklerini yeni objenin proto kısmına aktararak yeni özellikler kazandırmış oluruz.
+
+// //---------------------------------------------
+
+// zekiman.name= 'zekiman'
+// zekiman.birthYear= 1994
+// zekiman.job= 'maraba'
+
+// console.log(zekiman)
+// //  {name: 'zekiman', birthYear: 1994, job: 'maraba'}
+// //  birthYear: 1994
+// //  job: "maraba"
+// //  name: "zekiman"
+// //  [[Prototype]]: Object
+// //  calculateAge: ƒ ()
+// //  [[Prototype]]: Object
+
+// console.log(zekiman.calculateAge()) // 27
+
+// //---------------------------------------------
+
+// kubraWoman = Object.create(personProto,{
+//     name: {value: 'kubrawoman'},
+//     birthYear: {value: 1994},
+//     job: {value: 'maraba müdiresi'}
+// })
+
+// console.log(kubraWoman)
+// //  {name: 'kubrawoman', birthYear: 1993, job: 'maraba müdiresi'}
+// //  birthYear: 1993
+// //  job: "maraba müdiresi"
+// //  name: "kubrawoman"
+// //  [[Prototype]]: Object
+// //  calculateAge: ƒ ()
+// //  [[Prototype]]: Object
+
+// console.log(kubraWoman.calculateAge())  // 27
+
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 223 - PROTOTYPE BASED INHERITANCE
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802012#overview
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
+// Person = function(name,birhYear,job) {
+//     this.name = name;
+//     this.birhYear = birhYear;
+//     this.job = job
+// }
+
+// Person.prototype.calculateAge = function(){
+//     return new Date().getFullYear() - this.birhYear;
+// }
+
+// zekiman = new Person('zekiman',1994,'maraba management')
+// console.log(zekiman)
+// //      Person {name: 'zekiman', birhYear: 1994, job: 'maraba management'}
+// //      birhYear: 1994
+// //      job: "maraba management"
+// //      name: "zekiman"
+// //      [[Prototype]]: Object
+
+// //---------------------------------------------
+
+// Teacher = function(name,birthYear,job,subject){
+//     //* instead of typing again the following;
+//     // this.name = name;
+//     // this.birhYear = birhYear;
+//     // this.job = job;
+
+//     //* we are calling the parameters 
+//     Person.call(this,name,birthYear,job);
+
+//     this.subject = subject
+// }
+
+// kubrawoman = new Teacher('Kübrawoman',1994,'teacher','Math')
+
+// console.log(kubrawoman)
+// //  Teacher {name: 'Kübrawoman', birhYear: 1994, job: 'teacher', subject: 'subject'}
+// //  birhYear: 1994
+// //  job: "teacher"
+// //  name: "Kübrawoman"
+// //  subject: "Math"
+// //  [[Prototype]]: Object
+
+// //--------------------------------------------
+
+// //* Inheriting methods of Person object to Teacher object's prototype
+
+// //* console.log(kubrawoman.calculateAge())
+// //  notesJS.js:5198 Uncaught TypeError: kubrawoman.calculateAge is not a function
+// //  at notesJS.js:5198
+
+// Teacher.prototype = Object.create(Person.prototype)
+
+// console.log(Teacher.prototype.constructor)
+// //      ƒ (name,birhYear,job) {
+// //          this.name = name;
+// //          this.birhYear = birhYear;
+// //          this.job = job
+// //      }
+
+// //* it seems to exactly the same as Person prototype, but we have additional parameters for Teacher object. so we need to set Teacher constructor
+
+// Teacher.prototype.constructor = Teacher;
+
+// kubrawoman = new Teacher('Kübrawoman',1994,'teacher','Math')
+
+// console.log(kubrawoman)
+// //      Teacher {name: 'Kübrawoman', birhYear: 1994, job: 'teacher', subject: 'Math'}
+// //      birhYear: 1994
+// //      job: "teacher"
+// //      name: "Kübrawoman"
+// //      subject: "Math"
+// //      [[Prototype]]: Person
+// //      constructor: ƒ (name,birthYear,job,subject)
+// //      [[Prototype]]: Object
+// //      calculateAge: ƒ ()
+// //      constructor: ƒ (name,birhYear,job)
+// //      [[Prototype]]: Object
+
+// console.log(kubrawoman.calculateAge())
+// //      27
+
+// //--------------------------------------------
+
+// Teacher.prototype.greeting = function(){
+//     return 'Hellö, my name is '+ this.name
+// }
+
+// console.log(kubrawoman)
+// //      Teacher {name: 'Kübrawoman', birhYear: 1994, job: 'teacher', subject: 'Math'}
+// //      birhYear: 1994
+// //      job: "teacher"
+// //      name: "Kübrawoman"
+// //      subject: "Math"
+// //      [[Prototype]]: Person
+// //      constructor: ƒ (name,birthYear,job,subject)
+// //      greeting: ƒ ()
+// //      [[Prototype]]: Object
+
+// console.log(kubrawoman.greeting())
+// //      Hellö, my name is Kübrawoman
+
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 224 - BUILT-IN CONSTRUCTORS
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802014#overview
 
