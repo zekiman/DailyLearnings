@@ -5258,6 +5258,199 @@
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 224 - BUILT-IN CONSTRUCTORS
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802014#overview
+// //***** COURSE 224 - BUILT-IN CONSTRUCTORS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802014#overview
+
+
+// //* String
+
+// str1 = 'Zekiman';
+// str2 = new String('Zekiman');
+
+// console.log(str1)
+// // Zekiman
+
+// console.log(str2)
+// //  String {'Zekiman'}
+// //  0: "Z"
+// //  1: "e"
+// //  2: "k"
+// //  3: "i"
+// //  4: "m"
+// //  5: "a"
+// //  6: "n"
+// //  length: 7
+// //  [[Prototype]]: String
+// //  anchor: ƒ anchor()
+// //  at: ƒ at()
+// //  big: ƒ big()
+// //  blink: ƒ blink()
+// //  bold: ƒ bold()
+// //  charAt: ƒ charAt()
+// //  charCodeAt: ƒ charCodeAt()
+// //  codePointAt: ƒ codePointAt()
+// //  concat: ƒ concat()
+// //  constructor: ƒ String()
+// //  endsWith: ƒ endsWith()
+// //  fixed: ƒ fixed()
+// //  fontcolor: ƒ fontcolor()
+// //  fontsize: ƒ fontsize()
+// //  includes: ƒ includes()
+// //  indexOf: ƒ indexOf()
+// //  italics: ƒ italics()
+// //  lastIndexOf: ƒ lastIndexOf()
+// //  length: 0
+// //  link: ƒ link()
+// //  localeCompare: ƒ localeCompare()
+// //  match: ƒ match()
+// //  matchAll: ƒ matchAll()
+// //  normalize: ƒ normalize()
+// //  padEnd: ƒ padEnd()
+// //  padStart: ƒ padStart()
+// //  repeat: ƒ repeat()
+// //  replace: ƒ replace()
+// //  replaceAll: ƒ replaceAll()
+// //  search: ƒ search()
+// //  slice: ƒ slice()
+// //  small: ƒ small()
+// //  split: ƒ split()
+// //  startsWith: ƒ startsWith()
+// //  strike: ƒ strike()
+// //  sub: ƒ sub()
+// //  substr: ƒ substr()
+// //  substring: ƒ substring()
+// //  sup: ƒ sup()
+// //  toLocaleLowerCase: ƒ toLocaleLowerCase()
+// //  toLocaleUpperCase: ƒ toLocaleUpperCase()
+// //  toLowerCase: ƒ toLowerCase()
+// //  toString: ƒ toString()
+// //  toUpperCase: ƒ toUpperCase()
+// //  trim: ƒ trim()
+// //  trimEnd: ƒ trimEnd()
+// //  trimLeft: ƒ trimStart()
+// //  trimRight: ƒ trimEnd()
+// //  trimStart: ƒ trimStart()
+// //  valueOf: ƒ valueOf()
+// //  Symbol(Symbol.iterator): ƒ [Symbol.iterator]()
+// //  [[Prototype]]: Object
+// //  [[PrimitiveValue]]: ""
+// //  [[PrimitiveValue]]: "Zekiman"
+
+// console.log(typeof str1)    // string
+// console.log(typeof str2)    // object
+
+// //--------------------------------------------
+
+// if (str1 === 'Zekiman'){
+//     console.log('TRUE')
+// }else{
+//     console.log('NÖ')
+// } // YES
+
+// //--------
+
+// if (str2 === 'Zekiman'){
+//     console.log('TRUE')
+// }else{
+//     console.log('NÖ')
+// } // NÖ
+
+// //--------------------------------------------
+
+// //* NUMBER
+// num1 = 10;
+// num2 = new Number(10);
+
+// console.log(num1)
+// // 10
+
+// console.log(num2)
+// //  Number {10}
+// //  [[Prototype]]: Number
+// //  constructor: ƒ Number()
+// //  toExponential: ƒ toExponential()
+// //  toFixed: ƒ toFixed()
+// //  toLocaleString: ƒ toLocaleString()
+// //  toPrecision: ƒ toPrecision()
+// //  toString: ƒ toString()
+// //  valueOf: ƒ valueOf()
+// //  [[Prototype]]: Object
+// //  [[PrimitiveValue]]: 0
+// //  [[PrimitiveValue]]: 10
+
+// //--------------------------------------------
+
+// //* BOOLEAN
+// bool1 = true;
+// bool2 = new Boolean(true);
+
+// console.log(bool1)
+// // true
+
+// console.log(bool2)
+// //  Boolean {true}
+// //  [[Prototype]]: Boolean
+// //  constructor: ƒ Boolean()
+// //  toString: ƒ toString()
+// //  valueOf: ƒ valueOf()
+// //  [[Prototype]]: Object
+// //  [[PrimitiveValue]]: false
+// //  [[PrimitiveValue]]: true
+
+// //--------------------------------------------
+
+// //* OBJECT
+// obj1 = {name : 'Zekiman'};
+// obj2 = new Object({ name : 'Zekiman'})
+
+// console.log(obj1)
+// console.log(obj2)
+
+// //--------------------------------------------
+
+// //* ARRAY
+// arr1 = ['zekiman','kubrawoman','omerman']
+// arr2 = new Array(['zekiman','kubrawoman','omerman'])
+
+// console.log(arr1)
+// console.log(arr2)
+
+// //--------------------------------------------
+
+// console.log(str2)
+
+// String.prototype.repeat = function(n){
+//     return new Array(n+1).join(this)
+// }
+
+// console.log('Zekiman'.repeat(1))
+
+// //* We extended prototype of String by adding a method named repeat
+
+// //--------------
+
+// Array.prototype.remove = Array.prototype.remove || function(member){
+//     var index = this.indexOf(member);
+
+//     if(index > -1){
+//         this.splice(index,1);
+//     }else {
+//     return this;
+// }}
+
+// console.log(arr1)
+// // (3) ['zekiman', 'kubrawoman', 'omerman']
+
+// arr1.remove('zekiman')
+// console.log(arr1)
+// // (2) ['kubrawoman', 'omerman']
+
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 225 - EXCERSIZE - INHERITANCE
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802016#overview
 
