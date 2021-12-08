@@ -4693,7 +4693,7 @@
 // }
 
 
-// //* SET ITEM TO LOCAK STORAGE
+// //* SET ITEM TO LOCAL STORAGE
 // function setItemToLS(text){
 //     items = getItemsFromLS();
 //     items.push(text);
@@ -5451,6 +5451,919 @@
 //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 225 - EXCERSIZE - INHERITANCE
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802016#overview
+// //***** COURSE 225 - EXCERSIZE - INHERITANCE
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802016#overview
+// //* https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance 
 
+// Person = function(name,birthYear,job){
+//     this.name = name;
+//     this.birthYear = birthYear;
+//     this.job = job;
+// }
+
+// Person.prototype.calculateAge = function(){
+//     return new Date().getFullYear() - this.birthYear
+// }   
+
+// Teacher = function(name, birthYear, job, subject){
+//     // this.name = name;
+//     // this.birthYear = birthYear;
+//     // this.job = job;
+//     // We don't have to type again above, we can call it -->
+
+//     Person.call(this,name,birthYear,job)
+
+
+//     this.subject = subject
+// }
+
+// //--------------------------------------------
+
+// // Inherit the Person prototype methods
+// Teacher.prototype = Object.create(Person.prototype)
+
+// console.log(Teacher.prototype.constructor)
+//     // ƒ (name,birthYear,job){
+//     //     this.name = name;
+//     //     this.birthYear = birthYear;
+//     //     this.job = job;
+//     // }
+
+// // Set Teacher constructor
+// Teacher.prototype.constructor = Teacher
+
+// console.log(Teacher.prototype.constructor)
+
+
+// let Kubra = new Teacher('Kubra', 1994,'teacher','Math')
+
+
+// console.log(Kubra);
+// // Teacher {name: 'Kubra', birthYear: 1994, job: 'teacher', subject: 'Math'}
+// // birthYear: 1994
+// // job: "teacher"
+// // name: "Kubra"
+// // subject: "Math"
+// // [[Prototype]]: Person
+//         // constructor: ƒ (name, birthYear, job, subject)
+//         // [[Prototype]]: Object
+//                 // calculateAge: ƒ ()
+//                 // constructor: ƒ (name,birthYear,job)
+//                 // [[Prototype]]: Object
+
+// console.log(Kubra.calculateAge())
+// // 27
+
+// //--------------------------------------------
+
+// Teacher.prototype.greeting = function(){
+//     return 'hello baby, my name is '+ this.name
+// }
+
+// console.log(Kubra);
+// // Teacher {name: 'Kubra', birthYear: 1994, job: 'teacher', subject: 'Math'}
+// // birthYear: 1994
+// // job: "teacher"
+// // name: "Kubra"
+// // subject: "Math"
+// // [[Prototype]]: Person
+//         // constructor: ƒ (name, birthYear, job, subject)
+//         // greeting: ƒ ()
+//         // [[Prototype]]: Object
+//                 // calculateAge: ƒ ()
+//                 // constructor: ƒ (name,birthYear,job)
+//                 // [[Prototype]]: Object
+
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 226 - BUILT-IN CONSTRUCTORS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802014#overview
+
+
+// // String
+
+// str1 = 'Zekiman',
+// str2 = new String('Zekiman');
+
+// console.log(str1);          // Zekiman
+// console.log(typeof str1);   // string
+
+// console.log(str2);          // String {'Zekiman'}
+// console.log(typeof str2);   // Object
+
+// //--------------------------------------------
+
+// if(str1 ==='Zekiman'){
+//     console.log('yes')
+// }else{
+//     console.log('no')
+// }
+
+// //* result is 'yes' because of type (string) and value (Zekiman) matches 
+
+
+// if(str2 ==='Zekiman'){
+//     console.log('yes')
+// }else{
+//     console.log('no')
+// }
+
+// //* Result is 'no' because of although value matches the type doesn't match. (str2 is a object, not a string)
+
+
+// if(str2 =='Zekiman'){
+//     console.log('yes')
+// }else{
+//     console.log('no')
+// }
+
+// //* Result is 'yes' because of the type doesn't have to be matched.
+
+
+// //--------------------------------------------
+
+// //* Numbers
+// num1 = 10;
+// num2 = new Number(10);
+
+// console.log(num1)           // 10
+// console.log(typeof num1)    // number
+
+// console.log(num2)           // Number {10}
+// console.log(typeof num2)    // object
+
+// //--------------------------------------------
+
+// //* Boolean
+// bool1 = true
+// bool2 = new Boolean(true);
+
+// console.log(bool1)           // true
+// console.log(typeof bool1)    // boolean
+
+// console.log(bool2)           // Boolean {true}
+// console.log(typeof bool2)    // object
+
+// //--------------------------------------------
+
+// //* Object
+
+// obj1 = {
+//     name: 'Zekiman'
+// }
+
+// obj2 = new Object({
+//     name: 'Zekiman'
+// })
+
+// console.log(obj1)           // {name: 'Zekiman'}
+// console.log(typeof obj1)    // object
+
+// console.log(obj2)           // {name: 'Zekiman'}
+// console.log(typeof obj2)    // object
+
+// //--------------------------------------------
+
+// //* Array
+
+// arr1 = ['zekiman','kubrawoman','omerman']
+// arr2 = new Array(['zekiman','kubrawoman','omerman'])
+
+// console.log(arr1)           // (3) ['zekiman', 'kubrawoman', 'omerman']
+// console.log(typeof arr1)    // object
+
+// console.log(arr2)           
+// // [Array(3)]
+// // 0: (3) ['zekiman', 'kubrawoman', 'omerman']
+// // length: 1
+// // [[Prototype]]: Array(0)
+
+// console.log(typeof arr2)    // object
+
+
+// //--------------------------------------------
+
+// //* HOW TO EXTENDED OBJECT PROTOTYPE BY ADDING A FUNCTION
+
+// String.prototype.repeat = function(n){
+//     return new Array(n+1).join(this)
+// }
+
+// console.log('Zekiman'.repeat(2))    // ZekimanZekiman
+// console.log('Zekiman'.repeat(4))    // ZekimanZekimanZekimanZekiman
+
+
+// //--------------------------------------------
+
+// Array.prototype.remove = Array.prototype.remove || function(member){
+//     let index = this.indexOf(member);
+
+//     if(index > -1){
+//         this.splice(index,1);
+//     }
+//     return this
+// }
+
+// console.log(arr1)
+// // (3) ['zekiman', 'kubrawoman', 'omerman']
+
+// arr1.remove('zekiman')
+
+// console.log(arr1)
+// // (2) ['kubrawoman', 'omerman']
+
+// arr1.remove('zack')
+// console.log(arr1)
+// // (2) ['kubrawoman', 'omerman']
+
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 227 - EXERCISES INHERITANCE
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802016#content
+
+// //! When do you need to check 'inheritance notes', look at this lecture
+
+
+// Person = function(name){
+//     this.name = name
+// }
+
+// Person.prototype.Introduce = function(){
+//     return 'Hello my name is '+ this.name
+// }
+
+// let PersonZeki = new Person('Zekiman')
+
+
+// //--------------------------------------------
+
+// Student = function(name,number){
+//     Person.call(this,name);
+//     this.number = number
+// }
+
+// Student.prototype = Object.create(Person.prototype)
+// Student.prototype.constructor = Student
+
+// Student.prototype.study = function(){
+//     return 'My number of student is '+this.number
+// }
+
+// let StudentKubra = new Student('Kubrawoman','121916019')
+
+
+// //--------------------------------------------
+
+// Teacher = function(name,branch){
+//     Person.call(this,name);
+//     this.branch = branch
+// }
+
+// Teacher.prototype = Object.create(Person.prototype)
+// Teacher.prototype.constructor = Teacher
+
+// Teacher.prototype.teach = function(){
+//     return `I'm a ${this.branch} teacher. :)))`
+// }
+
+// let TeacherOmer = new Teacher('Omer', 'Din Kültürü')
+
+// //--------------------------------------------
+
+// HeadMaster = function(name,branch){
+//     Teacher.call(this,name,branch)
+// }
+
+// HeadMaster.prototype = Object.create(Teacher.prototype)
+// HeadMaster.prototype.constructor = HeadMaster
+
+// HeadMaster.prototype.shareTask = function(){
+//     return `I will do ${this.branch} works.`
+// }
+
+// let ReisZeki = new HeadMaster('Zekiman','Software Development')
+
+
+// //--------------------------------------------
+// //* Prototype of Person
+// console.log(PersonZeki)
+// // Person {name: 'Zekiman'}
+// // name: "Zekiman"
+// // [[Prototype]]: Object
+//         // Introduce: ƒ ()
+//         // constructor: ƒ (name)
+//         // [[Prototype]]: Object
+
+// //* Introduce method by adding to prototype
+// console.log(PersonZeki.Introduce())
+// // Hello my name is Zekiman
+
+
+// //--------------------------------------------
+// //* Prototype of Student
+// console.log(StudentKubra)
+// // Student {name: 'Kubrawoman', number: '121916019'}
+// // name: "Kubrawoman"
+// // number: "121916019"
+//         // [[Prototype]]: Person
+//         // study: ƒ ()
+//                 // [[Prototype]]: Object
+//                 // Introduce: ƒ ()
+//                 // constructor: ƒ (name)
+//                 // [[Prototype]]: Object
+
+
+// //* Introduce method by inhariting from Person's prototype 
+// console.log(StudentKubra.Introduce())
+// // Hello my name is Kubrawoman
+
+// //* Study method by adding to prototype
+// console.log(StudentKubra.study())
+// // My number of student is 121916019
+
+
+// //--------------------------------------------
+// //* Prototype of Teacher
+// console.log(TeacherOmer)
+// // Teacher {name: 'Omer', branch: 'Din Kültürü'}
+// // branch: "Din Kültürü"
+// // name: "Omer"
+//         // [[Prototype]]: Person
+//         // teach: ƒ ()
+//                 // [[Prototype]]: Object
+//                 // Introduce: ƒ ()
+//                 // constructor: ƒ (name)
+//                 // [[Prototype]]: Object
+
+// //* Introduce method by inhariting from Person's prototype 
+// console.log(TeacherOmer.Introduce())
+// // Hello my name is Omer
+
+// //* Teach method by adding to prototype
+// console.log(TeacherOmer.teach())
+// // I'm a Din Kültürü teacher. :)))
+
+// //--------------------------------------------
+// //* Prototype of HeadMaster
+// console.log(ReisZeki)
+// // HeadMaster {name: 'Zekiman', branch: 'Software Development'}
+// // branch: "Software Development"
+// // name: "Zekiman"
+//         // [[Prototype]]: Teacher
+//         // shareTask: ƒ ()
+//                 // [[Prototype]]: Person
+//                 // teach: ƒ ()
+//                         // [[Prototype]]: Object
+//                         // Introduce: ƒ ()
+//                         // constructor: ƒ (name)
+//                         // [[Prototype]]: Object
+
+// //* Introduce method by inhariting from Person's prototype 
+// console.log(ReisZeki.Introduce())
+// // Hello my name is Zekiman
+
+// //* Teach method by inhariting from Teacher's prototype 
+// console.log(ReisZeki.teach())
+// // I'm a Software Development teacher. :)))
+
+// //* shareTask method by adding to prototype
+// console.log(ReisZeki.shareTask())
+// // I will do Software Development works.
+
+// //--------------------------------------------
+
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 228 - PRIMITIVE & OBJECTS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802018#search
+
+// a = 10;
+// b = a;
+
+// console.log(a);     // 10
+// console.log(b);     // 10
+
+// a = 12;
+// console.log(b);     // 10
+
+// //--------------------------------------------
+// //* Turkish note:
+// //* primitive değişkenlerde her veri ayrı ayrı tutuluyor, yani a ya bir değer verdikten sonra b ye de a değerini atarsak ikisi de aynı değeri döndürür. Ama daha sonrasında (alt satırlarda) a değerini değiştirirsek, a yeni değerinde dönmeye devam ederken. b ise eski değerinde (a'nın eski değerinde) kalmaya devam edecektir.
+
+// //* Fakat object lerde durum biraz farklı. a objesine değer verip, b objesini de a objesine eşitlememiz halinde, ikisi aynı değeri verir normal olarak. ama daha sonrasında biz a objesinde bir değişiklik yaptığımızda hem a hem de b yeni değeri döndüreceklerdir. 
+
+// //* Bunun sebebi objeler primitive lerden farklı olarak değeri yığın içerisinde ayrı ayrı değil, heap altında ortak bir adreste tutar. Yapılacak bir değişiklik, verinin tutulduğu adreste de değiştirileceğinden her iki obje de adresten gelen yeni veriyi gösterir.
+// //--------------------------------------------
+
+// obj1 = {
+//     name: 'Zekiman',
+//     age: 10
+// }
+ 
+// obj2 = obj1
+
+// console.log(obj1)       // {name: 'Zekiman', age: 10}
+// console.log(obj2)       // {name: 'Zekiman', age: 10}
+
+// obj1.age = 12
+// console.log(obj1)       // {name: 'Zekiman', age: 12}
+// console.log(obj2)       // {name: 'Zekiman', age: 12}
+
+// //--------------------------------------------
+
+// num = 50;
+// account = {
+//     name: 'Zekiman',
+//     accountNumber: '1234556'
+// }               
+
+// console.log(num)                // 50
+// console.log(account)            // {name: 'Zekiman', accountNumber: '1234556'}
+
+// function update(a,b){
+//     a = 100;
+//     b.accountNumber = '23123123'
+// }
+
+// update(num,account)
+
+// console.log(num)                // 50        
+// console.log(account)            // {name: 'Zekiman', accountNumber: '23123123'}
+
+// //* Turkish note: Görüleceği üzere, num bir primitive olduğu için, update fonksiyonuna gönderilip 100 ile eşitlenmeye çalışıldığında değişmedi, ancak account parametresi ise giden account'un accountNumber property si '23123123' e eşitlendi.
+
+// //--------------------------------------------
+
+// products = [
+//     {name: 'product name', price: 1000},
+//     {name: 'product name', price: 1000},
+//     {name: 'product name', price: 1000},
+//     {name: 'product name', price: 1000},
+//     {name: 'product name', price: 1000},
+//     {name: 'product name', price: 1000}
+// ]
+
+// function filterProducts(prd){
+
+// }
+
+// filterProducts(products);
+
+// //* Turkish note: Kullanılma mantığı ise; örneğin 100k ürün olması halinde, bir fonksiyona parametre olarak gönderip değişikliği orijinal veri üzerinde yapmamız belleği daha tasarruflu kullanmamızı sağlar. Bu referans yoluyla verilerin tutulduğu adreste değişiklik yapmak, verilerin gereksiz yere kopyasını oluşturmaktan bizi kurtarır. 
+
+// //--------------------------------------------
+
+
+
+
+// //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 229 - CALLBACK FUNCTIONS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802020#search
+// //* https://developer.mozilla.org/en-US/docs/Glossary/Callback_function
+
+// // we are sending 3 parameters and a callback to function
+// function MultipleByTwo(a, b, c, callback) {
+
+//     // create an empty object
+//     let arr = [];
+
+//     // check: is callback empty? - is type of callback a function?
+//     if (callback && typeof callback === 'function') {
+
+//         // for loop
+//         for (let i = 0; i < 3; i++) {
+
+//             //each arguments will multiply by two and we callback
+//             // after callback function process, we push the items to arr array
+//             arr[i] = callback(arguments[i] * 2)
+//         }
+//     }
+//     return arr;
+// }
+
+
+// function addOne(a) {
+//     return a + 1
+// }
+
+// val = MultipleByTwo(5,10,20,addOne)
+
+// console.log(val)    // (3) [11, 21, 41]
+
+// //--------------------------------------------
+
+// val2 = MultipleByTwo(10,20,40,function(a){
+//     return a+1
+// })
+
+// console.log(val2) // (3) [21, 41, 81]
+
+
+// //--------------------------------------------
+
+
+
+
+// //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 230 - IMMEDIATE FUNCTIONS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802022#search
+// //* https://developer.mozilla.org/en-US/docs/Glossary/IIFE 
+
+
+// function welcome(){
+
+//     let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+//     let today = new Date();
+
+//     let message = 'Welcome. Today is '+days[today.getDay()]
+
+//     return message   
+// }
+
+// console.log(welcome())   // Welcome. Today is Wednesday
+
+
+// //--------------------------------------------
+// //* When we want to run the function only one time, we type it like this;
+
+// (function(name){
+//     let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+//     let today = new Date();
+
+//     let message = 'Welcome '+name+'. Today is '+days[today.getDay()]
+
+//     console.log(message)    //   Welcome Zekiman. Today is Wednesday
+// }('Zekiman'))
+
+
+
+
+// //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 231 - FUNCTIONS THAT RETURN FUNCTION
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802024#search
+
+// function Question(hobby){
+
+//     switch(hobby){
+//         case 'car':
+//             return function(name){
+//                 console.log(name+', do you have a car?')
+//             }
+//         break;
+        
+//         case 'book':
+//             return function(name){
+//                 console.log(name+', what is your favorite charachter?')
+//             }
+            
+//         break;
+
+//         case 'software':
+//             return function(name,type){
+//                 console.log(name+', are you interested in '+type+' ?')
+//             }
+//         break;
+
+//         default:
+//             return function(name){
+//                 console.log(name+', what is your hobbies?')
+//             }
+//     }
+// }
+
+// //--------------------------------------------
+
+// let carQuestion = Question('car');
+
+// carQuestion('Zekiman')          /// Zekiman, do you have a car?
+// carQuestion('Kubrawoman')       /// Kubrawoman, do you have a car?
+
+// let bookQuestion = Question('book');
+
+// bookQuestion('Zekiman')         /// Zekiman, what is your favorite charachter?
+
+// let softWare = Question('software')
+
+// softWare('Omerman','CSS3')      /// Omerman, are you interested in CSS3 ?
+
+// //--------------------------------------------
+
+
+
+
+// //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 232 - GETTER & SETTERS
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802026#search
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
+
+// person = {
+//     firstName: 'Zekiman',
+//     lastName: 'Blackwolf'
+// }
+
+// console.log(`${person.firstName} ${person.lastName}`)       // Zekiman Blackwolf
+
+// //--------------------------------------------
+// //* or we can gate same result by this way;
+
+// person = {
+//     firstName: 'Zekiman',
+//     lastName: 'Blackwolf',
+//     fullName: function(){
+//         return `${person.firstName} ${person.lastName}`
+//     }
+// }
+
+// console.log(person.fullName())      // Zekiman Blackwolf
+
+
+// person.firstName = ''
+
+// //--------------------------------------------
+// //* getter and setter
+
+// person = {
+//     firstName: 'Zekiman',
+//     lastName: 'Blackwolf',
+//     getfullName: function(){
+//         return `${person.firstName} ${person.lastName}`
+//     },
+//     setfullName: function(value){
+//         let parts = value.split(' ')
+//         this.firstName = parts[0];
+//         this.lastName = parts[1]
+//     }
+// }
+
+// console.log(person.getfullName())           //  Zekiman Blackwolf
+
+// //* set name
+// person.setfullName('Ahmet Karabasan')
+// //* get name
+// console.log(person.getfullName())           //  Ahmet Karabasan
+
+// //--------------------------------------------
+// //* or we can type the functions like this;
+
+// person = {
+//     firstName: 'Zekiman',
+//     lastName: 'Blackwolf',
+
+//     //* get name
+//     get fullName(){
+//         return `${person.firstName} ${person.lastName}`
+//     },
+//     //* set name
+//     set fullName(value){
+//         let parts = value.split(' ')
+//         this.firstName = parts[0];
+//         this.lastName = parts[1]
+//     }
+// }
+
+// console.log(person.fullName)           //  Zekiman Blackwolf
+
+// person.fullName = 'Ahmet Karabasan'
+// console.log(person.fullName)           //  Ahmet Karabasan
+
+// //--------------------------------------------
+
+// console.log(person)
+// // {firstName: 'Ahmet', lastName: 'Karabasan'}
+// // firstName: "Ahmet"
+// // fullName: (...)
+// // lastName: "Karabasan"
+// // get fullName: ƒ fullName()
+// // set fullName: ƒ fullName(value)
+// // [[Prototype]]: Object
+
+// //* or we can use like this
+
+// Object.defineProperty(person,'fullName',{
+//     //* get name
+//     get function(){
+//         return `${person.firstName} ${person.lastName}`
+//     },
+//     //* set name
+//     set function(value){
+//         let parts = value.split(' ')
+//         this.firstName = parts[0];
+//         this.lastName = parts[1]
+//     }
+// })
+
+// //--------------------------------------------
+
+// Object.defineProperty(person,'age',{
+//     value : 50,
+//     //* this value isn't writable, so when we try to set the value, it will be fail unless defining 'true' to writable property.
+
+//     writable: true
+// })
+
+// person.age = 55
+// //* because of defined true writable to age value of person object, age could be setted. 
+
+// console.log(person) // {firstName: 'Ahmet', lastName: 'Karabasan', age: 55}
+
+
+
+
+// //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 233 - CALL, APPLY & BIND
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802028#search
+
+
+// let welcome = function(a,b){
+//     console.log(`Welcome ${this.name}, are you interested in ${a} or ${b}?`)
+// }
+
+// welcome()   // Welcome 
+// // This.name didn't printed because of didn't defined
+
+// //--------------------------------------------
+
+// let kubra = {name: 'Kubra'};
+// let zekiman = {name: 'Zekiman'};
+// let omerman = {name: 'Omerman'};
+
+// welcome.call(kubra,'html5','css3')     // Welcome Kubra
+// welcome.call(zekiman,'html5','css3')   // Welcome Zekiman
+
+// //--------------------------------------------
+
+// welcome.apply(kubra,['html5','css3'])    // Welcome Kubra
+// welcome.apply(zekiman,['html5','css3'])  // Welcome Zekiman
+
+// //--------------------------------------------
+
+// welcomeZack = welcome.bind(zekiman);    
+// welcomeZack('html5','css3'); // Welcome Zekiman
+
+// welcomeQ = welcome.bind(kubra);    
+// welcomeQ('html5','css3'); // Welcome Kubra
+
+// welcomeOmar = welcome.bind(omerman);    
+// welcomeOmar('html5','css3'); // Welcome Omerman
+
+// //--------------------------------------------
+
+// //* Turkish note: Ne amaca hizmet ettiğini hala tam anlamış değilim, ama olay bu. bir fonksiyona dışarıdan değişken yollamak gibi bir şey :). Şunu net olarak söyleyebilirim; Call ile Apply nin kullanım olarak tek farkı apply in köşeli parantez içinde array olarak gönderilmesi. Bind'in kullanım şekli biraz daha farklı ama 3'ü de aynı görevi görüyor.
+
+// //* yarım saat sonra edit: Sanırım anladım, olay şu bir fonksiyona dışarıdan bir objenin propertysini yollamaya yarıyor. atıyorum fonksiyon bir hesaplama yapıyor, yaş hesaplaması diyelim... ve elimizde ayrı bir kişi bilgileri objesi var. o kişinin yaş bilgisini diğer fonksiyona çağırmak için kullanılabilir.. gibi... umarım öyledir...
+
+
+
+
+// //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 234 - EXERCISE CALL, APPLY & BIND
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802030#search
+
+// //* HOW USING 
+
+// //* Numeric Range
+
+// num = {
+//     min : 0,
+//     max : 100,
+//     checkNumericRange : function(value){
+//         if(typeof value !== 'number'){
+//             return false;
+//         }else{
+//             return value >= this.min && value <= this.max;
+//         }
+//     }
+// }
+
+// console.log(num.checkNumericRange(20))      // true
+// console.log(num.checkNumericRange(-20))     // false
+
+// //--------------------------------------------
+// //* checkNumericrange functions could be use from outside;
+
+// let num1 = {
+//     min: 50,
+//     max: 60
+// };
+ 
+// //* CALL
+// console.log(num.checkNumericRange.call(num1,55))       // true
+// //* APPLY
+// console.log(num.checkNumericRange.apply(num1,[70]))    // false
+// //* BIND
+// checkBind = num.checkNumericRange.bind(num1)    
+// console.log(checkBind(61))                              // false
+
+
+
+
+// //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 235 - ERROR HANDLING (TRY & CATCH)
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802032#search
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
+
+// // console.log(myFunction());
+// // // notesJS.js:6294 Uncaught ReferenceError: myFunction is not defined
+// // //     at notesJS.js:6294
+
+// //--------------------------------------------
+
+// try {
+//     console.log(myFunction());
+
+// }
+// catch(e){
+//     console.log(e)
+//     // ReferenceError: myFunction is not defined
+//     // at notesJS.js:6301
+
+//     console.log(e.message)
+//     // myFunction is not defined
+
+//     console.log(e.name)
+//     // ReferenceError
+
+//     console.log(e instanceof ReferenceError)
+//     // true
+
+//     console.log(e instanceof TypeError)
+//     // false
+
+//     console.log(typeof e)
+//     // object
+// }
+
+// user = {
+//     name: 'Zekiman Black'
+// }
+
+// //--------------------------------------------
+
+// //* ERROR TYPES;
+
+// //* Reference Error
+// //* Type Error
+// //* Syntax Error
+// //* URI Error
+
+// //* Error
+
+// //--------------------------------------------
+
+// try{
+//     console.log(user.name);
+//     console.log(user.email);
+//     if(!user.email){
+//         throw new Error('User has no e-mail!')
+//     }
+// }
+// catch(e){
+//     console.log(e)
+//     // Error: User has no e-mail!
+//     // at notesJS.js:6340
+    
+//     console.log(e.message)
+//     // User has no e-mail!
+// }
+// finally{
+//     console.log('finally block.')
+// }
+
+
+
+
+// //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 236 - EXERCISES - ERROR HANDLING (TRY & CATCH)
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802032#search
+//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
