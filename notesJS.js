@@ -6364,6 +6364,266 @@
 // //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 236 - EXERCISES - ERROR HANDLING (TRY & CATCH)
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802032#search
-//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
+// //***** COURSE 236 - EXERCISES - ERROR HANDLING (TRY & CATCH)
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802032#search
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
+
+
+
+// document.getElementById('mybtn').addEventListener('click', function (e) {
+
+//     let name = document.getElementById('name')
+//     let age = document.getElementById('age')
+//     let errors = document.getElementById('errors')
+
+//     try {
+//         if (name.value.length === 0) {
+//             throw new Error('Name is required.');
+//         }
+
+//         if (age.value.length === 0) {
+//             throw new Error('Age is required.');
+//         }
+
+//         if(name.value.length > 20){
+//             throw new Error('Name cannot be more than 20 characters.')
+//         }
+
+//         if(age.value > 150){
+//             throw new Error('Please check your age.')
+//         }
+
+//         if(isNaN(age.value)){
+//             throw new Error('Please enter your age by using only numbers.')
+//         }
+
+//         console.log('form is submitted.')
+
+//     } catch (err) {
+//         errors.innerHTML = err;
+//     }finally{
+//         name.value = '';
+//         age.value = '';
+//     }
+
+//     e.preventDefault();
+
+// })
+
+
+
+
+// //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 237 (part1) - COURSE PROJECT ( QUIZ APP )
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802038#search
+
+//***** COURSE 238 (part2) - COURSE PROJECT ( QUIZ APP )
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802040#search
+
+//***** COURSE 239 (part3) - COURSE PROJECT ( QUIZ APP )
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802042#search
+
+
+//* i will make it soon
+
+
+
+
+// //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 240 - ARROW FUNCTION
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802048#search
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+// //* An arrow function expression is a compact alternative to a traditional function expression, but is limited and can't be used in all situations.
+
+// //--------------------------------------------
+
+// //* ES5:
+
+// welcomeES5 = function(){
+//     console.log('Hello from ES5')
+// }
+
+// welcomeES5();   // Hello from ES5
+
+// //--------------------------------------------
+
+// //* ES6:
+
+// welcomeES6 = () => {
+//     console.log('Hello from ES6')
+// }
+
+// welcomeES6();   // Hello from ES6
+
+// //--------------------------------------------
+
+// //* ES5: WITH PARAMETERS
+
+// multiplierES5 = function(x,y){
+//     return console.log(x*y)
+// }
+
+// multiplierES5(5,10) // 50
+
+// //--------------------------------------------
+
+// //* ES6: WITH PARAMETERS
+
+// //* first way to type
+// // multiplierES6 = (a,b) => {
+// //     return console.log(a*b)
+// // }
+
+// //* second way to type
+// multiplierES6 = (a,b) => console.log(a*b)
+
+
+// multiplierES6(5,10) // 50
+
+// //--------------------------------------------
+
+// //* ES5
+
+// splitES5 = function(text){
+//     return text.split(' ');
+// }
+
+// console.log(splitES5('Modern Java Script Course'))
+// // (4) ['Modern', 'Java', 'Script', 'Course']
+
+// //--------------------------------------------
+
+// //* ES6
+
+// splitES6 = text => text.split(' ');
+
+// console.log(splitES6('Modern Javascript Course'))
+// // (3) ['Modern', 'Javascript', 'Course']
+
+// //--------------------------------------------
+
+// //* ES5: OBJECT LITERALS
+
+// getProductES5 = function(id,name){
+//     return {
+//         id : id,
+//         name: name
+//     }
+// }
+
+// console.log(getProductES5('1','banana'))
+// // {id: '1', name: 'banana'}
+
+// //--------------------------------------------
+
+// //* ES6: OBJECT LITERALS
+
+// getProductES6 = (id,name) => (
+//     {
+//         id: id,
+//         name: name
+//     } 
+// )
+
+// console.log(getProductES6('2','apple'))
+// // {id: '2', name: 'apple'}
+
+// //--------------------------------------------
+
+// //* Ex map:
+
+// phones = [
+//     {name: 'Iphone 13', price: 2500},
+//     {name: 'Iphone 12', price: 2000},
+//     {name: 'Iphone 11', price: 1500},
+//     {name: 'Iphone 10', price: 1000},
+// ];
+
+// //--------------------------------------------
+
+// //* ES5 map: 
+
+// pricesES5 = phones.map(function(item){
+//     return item
+// })
+
+// console.log(pricesES5)
+//     // (4) [{…}, {…}, {…}, {…}]
+//     // 0: {name: 'Iphone 13', price: 2500}
+//     // 1: {name: 'Iphone 12', price: 2000}
+//     // 2: {name: 'Iphone 11', price: 1500}
+//     // 3: {name: 'Iphone 10', price: 1000}
+
+// //-----------
+
+// pricesES5 = phones.map(function(item){
+//     return item.price
+// })
+
+// console.log(pricesES5)
+// // (4) [2500, 2000, 1500, 1000]
+
+// //--------------------------------------------
+
+// //* E6 map: 
+
+// pricesES6 = phones.map(item => item)
+
+// console.log(pricesES6)
+//     // (4) [{…}, {…}, {…}, {…}]
+//     // 0: {name: 'Iphone 13', price: 2500}
+//     // 1: {name: 'Iphone 12', price: 2000}
+//     // 2: {name: 'Iphone 11', price: 1500}
+//     // 3: {name: 'Iphone 10', price: 1000}
+
+// //-----------
+
+
+// pricesES6 = phones.map(item => item.price)
+
+// console.log(pricesES6)
+// // (4) [2500, 2000, 1500, 1000]
+
+// //--------------------------------------------
+
+// //* Ex filter:
+
+// arr = [1,2,3,10,23,51,64,24,74,218,53,57,85,254,78]
+
+// //--------------------------------------------
+
+// //* ES5 filter:
+
+// filterES5 = arr.filter(function(a){
+//     return a%2==0;
+// })
+
+// console.log(filterES5)
+// // (8) [2, 10, 64, 24, 74, 218, 254, 78]
+
+// //--------------------------------------------
+
+// //* ES6 filter;
+
+// filterES6 = arr.filter(item => item%2==0)
+
+// console.log(filterES6)
+// // (8) [2, 10, 64, 24, 74, 218, 254, 78]
+
+// //--------------------------------------------
+
+
+
+
+// //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 241 - "THIS" KEYWORD
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802050#search
+//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+
