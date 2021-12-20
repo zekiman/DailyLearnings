@@ -6620,10 +6620,198 @@
 
 
 
-// //**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
-//***** COURSE 241 - "THIS" KEYWORD
-//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802050#search
-//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+// //***** COURSE 241 - "THIS" KEYWORD
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802050#search
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+
+
+// //--------------------------------------------
+
+// //* ES5 
+
+// list = {
+//     category : 'phone',
+//     names : ['iphone','samsung','nokia'],
+//     call : function(){
+
+//         //*-------------------------------------------------------------------------------
+//         // this.names.map(function(name){
+//         //     console.log(`${category} ${name}`)
+//         //     //* The category is not defined because of scope. To solve this (to reach this.category), we should define a variable that value as 'this' like below;
+//         // })
+//         //*-------------------------------------------------------------------------------
+        
+//         let self = this; // like that..
+//         this.names.map(function(name){
+//             console.log(`${self.category} ${name}`)
+//             //* So we could reach the category property
+//         })
+//         //*-------------------------------------------------------------------------------
+
+//     }
+// }
+
+// list.call()
+
+// //--------------------------------------------
+
+// //* ES6 
+// //* In es6, we dont need the use another variable that has value as 'this'. We can use 'this' directly.
+
+// list = {
+//     category : 'phone',
+//     names : ['iphone','samsung','nokia'],
+//     call : function(){
+//         this.names.map( name =>
+//             console.log(`${this.category} ${name}`)
+//             //* So, we could define category property of 'this' by ES6 arrow function
+//         )
+//     }
+// }
+
+// list.call()
+
+// //--------------------------------------------
+
+// //ex;
+
+// Game();
+
+// function Game(){
+//     this.live = 0;
+//     this.addLive = function(){
+//         this.OneUp = setInterval(()=>{
+//             console.log(++this.live)
+//         },5000)
+//     }
+// }
+
+// let player = new Game();
+// player.addLive()
+
+// //--------------------------------------------
+
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+// //***** COURSE 242 - SPREAD OPERATOR 
+// //* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802052#search
+// //* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+// function getTotal(a,b,c){
+//     return a+b+c
+// }
+
+// console.log(getTotal(1,2,3))
+
+// numbers = [10,20,30];
+// //* When we want to send all items of numbers to getTotal function as parameters;
+
+// // -----------------------------
+
+// //* ES5
+// //* we are sending numbers array to getTotal function as parameter by apply
+
+// console.log(getTotal.apply(null,numbers))   // 60
+
+// // -----------------------------
+
+// //* ES6
+
+// console.log(getTotal(...numbers))           // 60
+
+// // -----------------------------
+
+// arr1 = ['two','three'];
+// arr2 = ['one','four','five'];
+
+// arr1.push(...arr2);
+
+// console.log(arr1)
+// // (5) ['two', 'three', 'one', 'four', 'five']
+
+// // -----------------------------
+
+// arr1.unshift(arr2);
+
+// console.log(...arr1)
+// // (3) ['one', 'four', 'five'] 'two' 'three' 'one' 'four' 'five'
+
+// // -----------------------------
+
+// arr3 = ['two','three']
+
+// arr4 = ['one',...arr3,'four','five']
+
+// console.log(arr4)
+// // (5) ['one', 'two', 'three', 'four', 'five']
+
+// // -----------------------------
+
+// h1 = document.querySelector('h1')
+// divs = document.querySelectorAll('div')
+// tags = [h1,...divs]
+
+// tags.forEach( tag => tag.style.color= 'red')
+
+// // -----------------------------
+
+
+
+//**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//***** COURSE 243 - REST PARAMETERS
+//* https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/17802054#search
+//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
+
+
+//* ES5
+function sumES5(){
+   
+    arr = Array.prototype.slice.call(arguments);
+
+    result = 0;
+
+    arr.forEach(function(element){
+        result += element
+    });
+
+    return result;
+}
+
+console.log(sumES5(10,20,30))
+
+// -----------------------------
+
+//* ES6
+
+function sumES6(...arr){
+
+    result = 0;
+
+    arr.forEach(element => {
+        result += element
+    });
+    
+    return result
+}
+
+console.log(sumES6(1,2,3))      // 6
+
+// -----------------------------
+
+function isDriver(age,...years){
+    years.forEach(element=>{
+        console.log(new Date().getFullYear()-element>=age)
+    })
+}
+
+isDriver(18,2003,2004,2005)
 
